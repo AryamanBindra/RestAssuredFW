@@ -1,37 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-01T19:15:40Z" name="Default suite" finished-at="2023-06-01T19:15:44Z" duration-ms="3876">
+  <suite started-at="2023-06-01T23:35:10Z" name="Default suite" finished-at="2023-06-01T23:35:13Z" duration-ms="2241">
     <groups>
     </groups>
-    <test started-at="2023-06-01T19:15:40Z" name="Default test" finished-at="2023-06-01T19:15:44Z" duration-ms="3876">
-      <class name="tests.LoginTest">
-        <test-method is-config="true" signature="initializeReport()[pri:0, instance:tests.LoginTest@255990cc]" started-at="2023-06-01T12:15:40Z" name="initializeReport" finished-at="2023-06-01T12:15:40Z" duration-ms="59" status="PASS">
+    <test started-at="2023-06-01T23:35:10Z" name="Default test" finished-at="2023-06-01T23:35:13Z" duration-ms="2241">
+      <class name="tests.EnvCurrentFlow">
+        <test-method is-config="true" signature="initializeReport()[pri:0, instance:tests.EnvCurrentFlow@3b9d6699]" started-at="2023-06-01T16:35:10Z" name="initializeReport" finished-at="2023-06-01T16:35:10Z" duration-ms="63" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeReport -->
-        <test-method is-config="true" signature="SetUp()[pri:0, instance:tests.LoginTest@255990cc]" started-at="2023-06-01T12:15:40Z" name="SetUp" finished-at="2023-06-01T12:15:40Z" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="SetUp()[pri:0, instance:tests.EnvCurrentFlow@3b9d6699]" started-at="2023-06-01T16:35:10Z" name="SetUp" finished-at="2023-06-01T16:35:10Z" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method signature="TC01_loginReq()[pri:1, instance:tests.LoginTest@255990cc]" started-at="2023-06-01T12:15:40Z" name="TC01_loginReq" finished-at="2023-06-01T12:15:44Z" duration-ms="3308" status="PASS">
+        <test-method signature="climateData()[pri:1, instance:tests.EnvCurrentFlow@3b9d6699]" started-at="2023-06-01T16:35:10Z" name="climateData" finished-at="2023-06-01T16:35:12Z" duration-ms="1788" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC01_loginReq -->
-        <test-method signature="TC03_addData()[pri:0, instance:tests.LoginTest@255990cc]" started-at="2023-06-01T12:15:44Z" name="TC03_addData" finished-at="2023-06-01T12:15:44Z" depends-on-methods="tests.LoginTest.TC01_loginReq" duration-ms="363" status="PASS">
+        </test-method> <!-- climateData -->
+        <test-method signature="dataDetails()[pri:0, instance:tests.EnvCurrentFlow@3b9d6699]" started-at="2023-06-01T16:35:12Z" name="dataDetails" finished-at="2023-06-01T16:35:13Z" depends-on-methods="tests.EnvCurrentFlow.climateData" duration-ms="443" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC03_addData -->
-        <test-method signature="TC2_GetData()[pri:0, instance:tests.LoginTest@255990cc]" started-at="2023-06-01T12:15:44Z" name="TC2_GetData" finished-at="2023-06-01T12:15:44Z" depends-on-methods="tests.LoginTest.TC01_loginReq" duration-ms="192" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC2_GetData -->
-        <test-method is-config="true" signature="flushReport()[pri:0, instance:tests.LoginTest@255990cc]" started-at="2023-06-01T12:15:44Z" name="flushReport" finished-at="2023-06-01T12:15:44Z" duration-ms="159" status="PASS">
+        </test-method> <!-- dataDetails -->
+        <test-method is-config="true" signature="flushReport()[pri:0, instance:tests.EnvCurrentFlow@3b9d6699]" started-at="2023-06-01T16:35:13Z" name="flushReport" finished-at="2023-06-01T16:35:13Z" duration-ms="169" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flushReport -->
-      </class> <!-- tests.LoginTest -->
+      </class> <!-- tests.EnvCurrentFlow -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

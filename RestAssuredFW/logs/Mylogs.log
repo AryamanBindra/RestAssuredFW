@@ -6,3 +6,39 @@
 [DEBUG] 2023-06-01 12:15:40.700 [main] BaseTest - BaseTest: setup: configuration complete
 [DEBUG] 2023-06-01 12:15:40.704 [main] BaseTest - Utilities Setup Complete
 [DEBUG] 2023-06-01 12:15:44.757 [main] BaseTest - BaseTest: tearDown: completed 
+[DEBUG] 2023-06-01 15:43:59.521 [main] BaseTest - BaseTest: setup: configuration started 
+[DEBUG] 2023-06-01 15:43:59.573 [main] BaseTest - BaseTest: setup: configuration complete
+[DEBUG] 2023-06-01 15:43:59.582 [main] BaseTest - Utilities Setup Complete
+[DEBUG] 2023-06-01 15:44:01.632 [main] BaseTest - BaseTest: tearDown: completed 
+[DEBUG] 2023-06-01 15:45:09.043 [main] BaseTest - BaseTest: setup: configuration started 
+[DEBUG] 2023-06-01 15:45:09.096 [main] BaseTest - BaseTest: setup: configuration complete
+[DEBUG] 2023-06-01 15:45:09.099 [main] BaseTest - Utilities Setup Complete
+[DEBUG] 2023-06-01 15:45:10.931 [main] BaseTest - BaseTest: tearDown: completed 
+[DEBUG] 2023-06-01 15:46:28.734 [main] BaseTest - BaseTest: setup: configuration started 
+[DEBUG] 2023-06-01 15:46:28.788 [main] BaseTest - BaseTest: setup: configuration complete
+[DEBUG] 2023-06-01 15:46:28.793 [main] BaseTest - Utilities Setup Complete
+[DEBUG] 2023-06-01 15:46:30.530 [main] BaseTest - BaseTest: tearDown: completed 
+[DEBUG] 2023-06-01 16:11:17.328 [main] BaseTest - BaseTest: setup: configuration started 
+[DEBUG] 2023-06-01 16:11:17.389 [main] BaseTest - BaseTest: setup: configuration complete
+[DEBUG] 2023-06-01 16:11:17.393 [main] BaseTest - Utilities Setup Complete
+[DEBUG] 2023-06-01 16:11:19.733 [main] BaseTest - BaseTest: tearDown: completed 
+[DEBUG] 2023-06-01 16:18:00.598 [main] BaseTest - BaseTest: setup: configuration started 
+[DEBUG] 2023-06-01 16:18:00.656 [main] BaseTest - BaseTest: setup: configuration complete
+[DEBUG] 2023-06-01 16:18:00.663 [main] BaseTest - Utilities Setup Complete
+[DEBUG] 2023-06-01 16:18:07.013 [main] BaseTest - BaseTest: tearDown: completed 
+[DEBUG] 2023-06-01 16:22:14.587 [main] BaseTest - BaseTest: setup: configuration started 
+[DEBUG] 2023-06-01 16:22:14.637 [main] BaseTest - BaseTest: setup: configuration complete
+[DEBUG] 2023-06-01 16:22:14.642 [main] BaseTest - Utilities Setup Complete
+[DEBUG] 2023-06-01 16:22:18.569 [main] BaseTest - BaseTest: tearDown: completed 
+[DEBUG] 2023-06-01 16:26:10.122 [main] BaseTest - BaseTest: setup: configuration started 
+[DEBUG] 2023-06-01 16:26:10.184 [main] BaseTest - BaseTest: setup: configuration complete
+[DEBUG] 2023-06-01 16:26:10.188 [main] BaseTest - Utilities Setup Complete
+[DEBUG] 2023-06-01 16:26:14.303 [main] BaseTest - BaseTest: tearDown: completed 
+[DEBUG] 2023-06-01 16:33:37.259 [main] BaseTest - BaseTest: setup: configuration started 
+[DEBUG] 2023-06-01 16:33:37.315 [main] BaseTest - BaseTest: setup: configuration complete
+[DEBUG] 2023-06-01 16:33:37.320 [main] BaseTest - Utilities Setup Complete
+[DEBUG] 2023-06-01 16:33:41.797 [main] BaseTest - BaseTest: tearDown: completed 
+[DEBUG] 2023-06-01 16:35:10.721 [main] BaseTest - BaseTest: setup: configuration started 
+[DEBUG] 2023-06-01 16:35:10.777 [main] BaseTest - BaseTest: setup: configuration complete
+[DEBUG] 2023-06-01 16:35:10.781 [main] BaseTest - Utilities Setup Complete
+[DEBUG] 2023-06-01 16:35:13.203 [main] BaseTest - BaseTest: tearDown: completed 

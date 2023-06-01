@@ -7,7 +7,6 @@ import com.aventstack.extentreports.Status;
 
 import java.util.List;
 
-import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
@@ -20,7 +19,7 @@ public class EnvCurrentFlow extends BaseTest {
 	public void climateData() {
 		test = extent.createTest("climateData");
 
-		Response response = RestAssured.get(
+		Response response = lu.taGet(
 				"https://api.openweathermap.org/data/2.5/weather?q=davis &appid=08879b09b61cbc80bb47626adcbd5331&");
 
 		data = response.asString();

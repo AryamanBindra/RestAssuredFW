@@ -24,6 +24,16 @@ public class LoginUtils {
 		return response;
 	}
 	
+	public Response taGet(String endPoint) {
+		Response response = RestAssured.given().when().get(endPoint).andReturn();
+		return response;
+	}
+	
+	public Response taGet(String endPoint, HashMap<String, String> headers, HashMap<String, String> query) {
+		Response response = RestAssured.given().queryParams(query).and().headers(headers).when().get(endPoint).andReturn();
+		return response;
+	}
+	
 	public Response taPut(String endPoint, HashMap<String, String> headers, String body) {
 		Response response = RestAssured.given().headers(headers).when().body(body).put(endPoint).andReturn();
 		return response;

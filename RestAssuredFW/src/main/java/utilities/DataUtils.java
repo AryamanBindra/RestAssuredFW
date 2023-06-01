@@ -1,4 +1,4 @@
-package tekarch.utilities;
+package utilities;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

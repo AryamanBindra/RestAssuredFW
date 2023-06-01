@@ -1,4 +1,4 @@
-package tekarch.reusables;
+package reusables;
 
 import java.util.HashMap;
 

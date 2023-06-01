@@ -1,15 +1,16 @@
-package tekarch.tests;
+package tests;
 
 import java.io.IOException;
 import java.util.HashMap;
 
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
 import com.jayway.jsonpath.JsonPath;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import tekarch.utilities.DataUtils;
+import utilities.DataUtils;
 
 public class LoginTest extends BaseTest{
 
@@ -17,6 +18,7 @@ public class LoginTest extends BaseTest{
 	
 	@Test(priority = 1)
 	public void TC01_loginReq() throws IOException {
+		test = extent.createTest("TC01_loginReq");
 		String env = System.getProperty("user.dir") + "//src//main//java//testData//env.json";
 		String prodEnv = DataUtils.readJsonFileAsString(env);
 		RestAssured.baseURI = JsonPath.read(prodEnv, "$.prod.uri");
@@ -33,10 +35,12 @@ public class LoginTest extends BaseTest{
 			token = response.jsonPath().get("token").toString().replaceAll("\\[", "").replaceAll("]", "");
 			System.out.println(token);
 		}
+		test.log(Status.DEBUG, "success");
 	}
 	
 	@Test(dependsOnMethods = "TC01_loginReq")
 	public void TC2_GetData() throws IOException {
+		test = extent.createTest("TC2_GetData");
 		String env = System.getProperty("user.dir") + "//src//main//java//testData//env.json";
 		String prodEnv = DataUtils.readJsonFileAsString(env);
 		RestAssured.baseURI = JsonPath.read(prodEnv, "$.prod.uri");
@@ -51,11 +55,13 @@ public class LoginTest extends BaseTest{
 			System.out.println(response.jsonPath().get("status").toString());
 		} else
 			System.out.println("---");
+		test.log(Status.DEBUG, "success");
 	}
 			
 
 	@Test(dependsOnMethods = "TC01_loginReq")
 	public void TC03_addData() throws IOException {
+		test = extent.createTest("TC03_addData");
 		String env = System.getProperty("user.dir") + "//src//main//java//testData//env.json";
 		String prodEnv = DataUtils.readJsonFileAsString(env);
 		RestAssured.baseURI = JsonPath.read(prodEnv, "$.prod.uri");
@@ -74,6 +80,7 @@ public class LoginTest extends BaseTest{
 			System.out.println(response.jsonPath().get("status").toString());
 		} else
 			System.out.println("--Failed--");
+		test.log(Status.DEBUG, "success");
 	}
 
 

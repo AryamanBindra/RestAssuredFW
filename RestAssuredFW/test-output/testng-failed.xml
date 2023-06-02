@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="tekarch.tests.LoginTest">
+      <class name="tests.EnvCurrentFlow">
         <methods>
+          <include name="climateData"/>
+          <include name="initializeReport"/>
           <include name="SetUp"/>
-          <include name="TC01_loginReq"/>
-          <include name="TC2_GetData"/>
+          <include name="flushReport"/>
+          <include name="dataDetails"/>
         </methods>
-      </class> <!-- tekarch.tests.LoginTest -->
+      </class> <!-- tests.EnvCurrentFlow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

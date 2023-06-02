@@ -1,0 +1,2570 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Jun 1, 2023 06:30:18 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='40%'><span class='strong'>2</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='60%'>3</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='40%'><span class='strong'>2</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='60%'>3</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>DIGITAL_CURRENCY_MONTHLY</span>
+						<span class='test-time'>Jun 1, 2023 06:30:18 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jun 1, 2023 06:30:18 PM</span>
+	<span class='label end-time'>Jun 1, 2023 06:30:19 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+565ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:30:19 PM</td>
+					<td class='step-details'>Digital monthly Exchange rate recieved{
+    "Meta Data": {
+        "1. Information": "Monthly Prices and Volumes for Digital Currency",
+        "2. Digital Currency Code": "BTC",
+        "3. Digital Currency Name": "Bitcoin",
+        "4. Market Code": "CNY",
+        "5. Market Name": "Chinese Yuan",
+        "6. Last Refreshed": "2023-06-02 00:00:00",
+        "7. Time Zone": "UTC"
+    },
+    "Time Series (Digital Currency Monthly)": {
+        "2023-06-02": {
+            "1a. open (CNY)": "193008.52555200",
+            "1b. open (USD)": "27210.36000000",
+            "2a. high (CNY)": "193999.02000000",
+            "2b. high (USD)": "27350.00000000",
+            "3a. low (CNY)": "188714.94066000",
+            "3b. low (USD)": "26605.05000000",
+            "4a. close (CNY)": "189761.11672800",
+            "4b. close (USD)": "26752.54000000",
+            "5. volume": "40203.73048000",
+            "6. market cap (USD)": "40203.73048000"
+        },
+        "2023-05-31": {
+            "1a. open (CNY)": "207356.93424000",
+            "1b. open (USD)": "29233.20000000",
+            "2a. high (CNY)": "211519.22400000",
+            "2b. high (USD)": "29820.00000000",
+            "3a. low (CNY)": "183085.84807200",
+            "3b. low (USD)": "25811.46000000",
+            "4a. close (CNY)": "193008.45462000",
+            "4b. close (USD)": "27210.35000000",
+            "5. volume": "1302000.49221000",
+            "6. market cap (USD)": "1302000.49221000"
+        },
+        "2023-04-30": {
+            "1a. open (CNY)": "201910.49155200",
+            "1b. open (USD)": "28465.36000000",
+            "2a. high (CNY)": "219889.20000000",
+            "2b. high (USD)": "31000.00000000",
+            "3a. low (CNY)": "191110.81082400",
+            "3b. low (USD)": "26942.82000000",
+            "4a. close (CNY)": "207357.00517200",
+            "4b. close (USD)": "29233.21000000",
+            "5. volume": "1626745.55850000",
+            "6. market cap (USD)": "1626745.55850000"
+        },
+        "2023-03-31": {
+            "1a. open (CNY)": "164147.78432400",
+            "1b. open (USD)": "23141.57000000",
+            "2a. high (CNY)": "207012.77217600",
+            "2b. high (USD)": "29184.68000000",
+            "3a. low (CNY)": "138665.60518800",
+            "3b. low (USD)": "19549.09000000",
+            "4a. close (CNY)": "201910.49155200",
+            "4b. close (USD)": "28465.36000000",
+            "5. volume": "9516189.35846000",
+            "6. market cap (USD)": "9516189.35846000"
+        },
+        "2023-02-28": {
+            "1a. open (CNY)": "164031.17211600",
+            "1b. open (USD)": "23125.13000000",
+            "2a. high (CNY)": "179103.30000000",
+            "2b. high (USD)": "25250.00000000",
+            "3a. low (CNY)": "151447.40972400",
+            "3b. low (USD)": "21351.07000000",
+            "4a. close (CNY)": "164147.78432400",
+            "4b. close (USD)": "23141.57000000",
+            "5. volume": "8642691.27165000",
+            "6. market cap (USD)": "8642691.27165000"
+        },
+        "2023-01-31": {
+            "1a. open (CNY)": "117334.08296400",
+            "1b. open (USD)": "16541.77000000",
+            "2a. high (CNY)": "169956.90232800",
+            "2b. high (USD)": "23960.54000000",
+            "3a. low (CNY)": "117030.77773200",
+            "3b. low (USD)": "16499.01000000",
+            "4a. close (CNY)": "164031.17211600",
+            "4b. close (USD)": "23125.13000000",
+            "5. volume": "7977028.87801000",
+            "6. market cap (USD)": "7977028.87801000"
+        },
+        "2022-12-31": {
+            "1a. open (CNY)": "121758.53739600",
+            "1b. open (USD)": "17165.53000000",
+            "2a. high (CNY)": "130429.40694000",
+            "2b. high (USD)": "18387.95000000",
+            "3a. low (CNY)": "115309.18716000",
+            "3b. low (USD)": "16256.30000000",
+            "4a. close (CNY)": "117338.55168000",
+            "4b. close (USD)": "16542.40000000",
+            "5. volume": "5803833.88187000",
+            "6. market cap (USD)": "5803833.88187000"
+        },
+        "2022-11-30": {
+            "1a. open (CNY)": "145344.91696800",
+            "1b. open (USD)": "20490.74000000",
+            "2a. high (CNY)": "152366.54658000",
+            "2b. high (USD)": "21480.65000000",
+            "3a. low (CNY)": "109774.36320000",
+            "3b. low (USD)": "15476.00000000",
+            "4a. close (CNY)": "121745.13124800",
+            "4b. close (USD)": "17163.64000000",
+            "5. volume": "9127693.50906500",
+            "6. market cap (USD)": "9127693.50906500"
+        },
+        "2022-10-31": {
+            "1a. open (CNY)": "137768.45725200",
+            "1b. open (USD)": "19422.61000000",
+            "2a. high (CNY)": "149560.12200000",
+            "2b. high (USD)": "21085.00000000",
+            "3a. low (CNY)": "129025.30800000",
+            "3b. low (USD)": "18190.00000000",
+            "4a. close (CNY)": "145344.91696800",
+            "4b. close (USD)": "20490.74000000",
+            "5. volume": "7499121.81542000",
+            "6. market cap (USD)": "7499121.81542000"
+        },
+        "2022-09-30": {
+            "1a. open (CNY)": "142207.59460800",
+            "1b. open (USD)": "20048.44000000",
+            "2a. high (CNY)": "161717.86680000",
+            "2b. high (USD)": "22799.00000000",
+            "3a. low (CNY)": "128571.20133600",
+            "3b. low (USD)": "18125.98000000",
+            "4a. close (CNY)": "137768.45725200",
+            "4b. close (USD)": "19422.61000000",
+            "5. volume": "9838930.53657000",
+            "6. market cap (USD)": "9838930.53657000"
+        },
+        "2022-08-31": {
+            "1a. open (CNY)": "165245.74075200",
+            "1b. open (USD)": "23296.36000000",
+            "2a. high (CNY)": "178828.93502400",
+            "2b. high (USD)": "25211.32000000",
+            "3a. low (CNY)": "138459.26400000",
+            "3b. low (USD)": "19520.00000000",
+            "4a. close (CNY)": "142218.80186400",
+            "4b. close (USD)": "20050.02000000",
+            "5. volume": "5692462.41571000",
+            "6. market cap (USD)": "5692462.41571000"
+        },
+        "2022-07-31": {
+            "1a. open (CNY)": "141454.08397200",
+            "1b. open (USD)": "19942.21000000",
+            "2a. high (CNY)": "174975.05760000",
+            "2b. high (USD)": "24668.00000000",
+            "3a. low (CNY)": "133217.38920000",
+            "3b. low (USD)": "18781.00000000",
+            "4a. close (CNY)": "165224.17742400",
+            "4b. close (USD)": "23293.32000000",
+            "5. volume": "4983278.58810000",
+            "6. market cap (USD)": "4983278.58810000"
+        },
+        "2022-06-30": {
+            "1a. open (CNY)": "225571.20786000",
+            "1b. open (USD)": "31801.05000000",
+            "2a. high (CNY)": "226861.60280400",
+            "2b. high (USD)": "31982.97000000",
+            "3a. low (CNY)": "124996.37040000",
+            "3b. low (USD)": "17622.00000000",
+            "4a. close (CNY)": "141454.08397200",
+            "4b. close (USD)": "19942.21000000",
+            "5. volume": "2816058.47322600",
+            "6. market cap (USD)": "2816058.47322600"
+        },
+        "2022-05-31": {
+            "1a. open (CNY)": "266922.79056000",
+            "1b. open (USD)": "37630.80000000",
+            "2a. high (CNY)": "283896.60536400",
+            "2b. high (USD)": "40023.77000000",
+            "3a. low (CNY)": "189388.44000000",
+            "3b. low (USD)": "26700.00000000",
+            "4a. close (CNY)": "225571.13692800",
+            "4b. close (USD)": "31801.04000000",
+            "5. volume": "2387839.68080400",
+            "6. market cap (USD)": "2387839.68080400"
+        },
+        "2022-04-30": {
+            "1a. open (CNY)": "322814.01462000",
+            "1b. open (USD)": "45510.35000000",
+            "2a. high (CNY)": "336530.56105200",
+            "2b. high (USD)": "47444.11000000",
+            "3a. low (CNY)": "266549.68824000",
+            "3b. low (USD)": "37578.20000000",
+            "4a. close (CNY)": "266922.79056000",
+            "4b. close (USD)": "37630.80000000",
+            "5. volume": "1267655.68178000",
+            "6. market cap (USD)": "1267655.68178000"
+        },
+        "2022-03-31": {
+            "1a. open (CNY)": "306142.51200000",
+            "1b. open (USD)": "43160.00000000",
+            "2a. high (CNY)": "341820.17308800",
+            "2b. high (USD)": "48189.84000000",
+            "3a. low (CNY)": "263547.84600000",
+            "3b. low (USD)": "37155.00000000",
+            "4a. close (CNY)": "322813.94368800",
+            "4b. close (USD)": "45510.34000000",
+            "5. volume": "1501398.79591000",
+            "6. market cap (USD)": "1501398.79591000"
+        },
+        "2022-02-28": {
+            "1a. open (CNY)": "272853.41508000",
+            "1b. open (USD)": "38466.90000000",
+            "2a. high (CNY)": "325017.51720000",
+            "2b. high (USD)": "45821.00000000",
+            "3a. low (CNY)": "243454.79649600",
+            "3b. low (USD)": "34322.28000000",
+            "4a. close (CNY)": "306142.51200000",
+            "4b. close (USD)": "43160.00000000",
+            "5. volume": "1253514.21906000",
+            "6. market cap (USD)": "1253514.21906000"
+        },
+        "2022-01-31": {
+            "1a. open (CNY)": "327825.92787600",
+            "1b. open (USD)": "46216.93000000",
+            "2a. high (CNY)": "340402.66800000",
+            "2b. high (USD)": "47990.00000000",
+            "3a. low (CNY)": "233488.07024400",
+            "3b. low (USD)": "32917.17000000",
+            "4a. close (CNY)": "272853.41508000",
+            "4b. close (USD)": "38466.90000000",
+            "5. volume": "1279407.46572100",
+            "6. market cap (USD)": "1279407.46572100"
+        },
+        "2021-12-31": {
+            "1a. open (CNY)": "403961.71219200",
+            "1b. open (USD)": "56950.56000000",
+            "2a. high (CNY)": "418878.64086000",
+            "2b. high (USD)": "59053.55000000",
+            "3a. low (CNY)": "297916.52796000",
+            "3b. low (USD)": "42000.30000000",
+            "4a. close (CNY)": "327825.92787600",
+            "4b. close (USD)": "46216.93000000",
+            "5. volume": "1233745.52431800",
+            "6. market cap (USD)": "1233745.52431800"
+        },
+        "2021-11-30": {
+            "1a. open (CNY)": "434811.81229200",
+            "1b. open (USD)": "61299.81000000",
+            "2a. high (CNY)": "489430.80000000",
+            "2b. high (USD)": "69000.00000000",
+            "3a. low (CNY)": "377759.99884800",
+            "3b. low (USD)": "53256.64000000",
+            "4a. close (CNY)": "403961.71219200",
+            "4b. close (USD)": "56950.56000000",
+            "5. volume": "1291900.10524800",
+            "6. market cap (USD)": "1291900.10524800"
+        },
+        "2021-10-31": {
+            "1a. open (CNY)": "310824.09493200",
+            "1b. open (USD)": "43820.01000000",
+            "2a. high (CNY)": "475244.40000000",
+            "2b. high (USD)": "67000.00000000",
+            "3a. low (CNY)": "307015.18839600",
+            "3b. low (USD)": "43283.03000000",
+            "4a. close (CNY)": "434811.74136000",
+            "4b. close (USD)": "61299.80000000",
+            "5. volume": "1565556.29262300",
+            "6. market cap (USD)": "1565556.29262300"
+        },
+        "2021-09-30": {
+            "1a. open (CNY)": "334096.03294800",
+            "1b. open (USD)": "47100.89000000",
+            "2a. high (CNY)": "375372.14400000",
+            "2b. high (USD)": "52920.00000000",
+            "3a. low (CNY)": "280890.72000000",
+            "3b. low (USD)": "39600.00000000",
+            "4a. close (CNY)": "310853.10612000",
+            "4b. close (USD)": "43824.10000000",
+            "5. volume": "1527799.51076800",
+            "6. market cap (USD)": "1527799.51076800"
+        },
+        "2021-08-31": {
+            "1a. open (CNY)": "294097.12348800",
+            "1b. open (USD)": "41461.84000000",
+            "2a. high (CNY)": "358206.60000000",
+            "2b. high (USD)": "50500.00000000",
+            "3a. low (CNY)": "264808.30764000",
+            "3b. low (USD)": "37332.70000000",
+            "4a. close (CNY)": "334096.03294800",
+            "4b. close (USD)": "47100.89000000",
+            "5. volume": "1635402.87424500",
+            "6. market cap (USD)": "1635402.87424500"
+        },
+        "2021-07-31": {
+            "1a. open (CNY)": "248581.19400000",
+            "1b. open (USD)": "35045.00000000",
+            "2a. high (CNY)": "301092.15360000",
+            "2b. high (USD)": "42448.00000000",
+            "3a. low (CNY)": "207674.70960000",
+            "3b. low (USD)": "29278.00000000",
+            "4a. close (CNY)": "294097.05255600",
+            "4b. close (USD)": "41461.83000000",
+            "5. volume": "1778463.26483700",
+            "6. market cap (USD)": "1778463.26483700"
+        },
+        "2021-06-30": {
+            "1a. open (CNY)": "264248.79602400",
+            "1b. open (USD)": "37253.82000000",
+            "2a. high (CNY)": "293161.95600000",
+            "2b. high (USD)": "41330.00000000",
+            "3a. low (CNY)": "204319.62600000",
+            "3b. low (USD)": "28805.00000000",
+            "4a. close (CNY)": "248581.19400000",
+            "4b. close (USD)": "35045.00000000",
+            "5. volume": "2901775.30592300",
+            "6. market cap (USD)": "2901775.30592300"
+        },
+        "2021-05-31": {
+            "1a. open (CNY)": "409258.13370000",
+            "1b. open (USD)": "57697.25000000",
+            "2a. high (CNY)": "422045.40000000",
+            "2b. high (USD)": "59500.00000000",
+            "3a. low (CNY)": "212796.00000000",
+            "3b. low (USD)": "30000.00000000",
+            "4a. close (CNY)": "264248.72509200",
+            "4b. close (USD)": "37253.81000000",
+            "5. volume": "3536245.25657300",
+            "6. market cap (USD)": "3536245.25657300"
+        },
+        "2021-04-30": {
+            "1a. open (CNY)": "416650.73767200",
+            "1b. open (USD)": "58739.46000000",
+            "2a. high (CNY)": "460022.39280000",
+            "2b. high (USD)": "64854.00000000",
+            "3a. low (CNY)": "332883.87600000",
+            "3b. low (USD)": "46930.00000000",
+            "4a. close (CNY)": "409236.99596400",
+            "4b. close (USD)": "57694.27000000",
+            "5. volume": "1993468.93800700",
+            "6. market cap (USD)": "1993468.93800700"
+        },
+        "2021-03-31": {
+            "1a. open (CNY)": "320145.26905200",
+            "1b. open (USD)": "45134.11000000",
+            "2a. high (CNY)": "438671.86080000",
+            "2b. high (USD)": "61844.00000000",
+            "3a. low (CNY)": "318843.09939600",
+            "3b. low (USD)": "44950.53000000",
+            "4a. close (CNY)": "416658.46926000",
+            "4b. close (USD)": "58740.55000000",
+            "5. volume": "2098808.02743200",
+            "6. market cap (USD)": "2098808.02743200"
+        },
+        "2021-02-28": {
+            "1a. open (CNY)": "234735.05480400",
+            "1b. open (USD)": "33092.97000000",
+            "2a. high (CNY)": "413908.08096000",
+            "2b. high (USD)": "58352.80000000",
+            "3a. low (CNY)": "229083.12211200",
+            "3b. low (USD)": "32296.16000000",
+            "4a. close (CNY)": "320156.26351200",
+            "4b. close (USD)": "45135.66000000",
+            "5. volume": "2518242.14851700",
+            "6. market cap (USD)": "2518242.14851700"
+        },
+        "2021-01-31": {
+            "1a. open (CNY)": "205161.09231600",
+            "1b. open (USD)": "28923.63000000",
+            "2a. high (CNY)": "297559.74000000",
+            "2b. high (USD)": "41950.00000000",
+            "3a. low (CNY)": "199531.71600000",
+            "3b. low (USD)": "28130.00000000",
+            "4a. close (CNY)": "234735.12573600",
+            "4b. close (USD)": "33092.98000000",
+            "5. volume": "3440864.75001900",
+            "6. market cap (USD)": "3440864.75001900"
+        },
+        "2020-12-31": {
+            "1a. open (CNY)": "139706.74508400",
+            "1b. open (USD)": "19695.87000000",
+            "2a. high (CNY)": "207830.76000000",
+            "2b. high (USD)": "29300.00000000",
+            "3a. low (CNY)": "124644.05115600",
+            "3b. low (USD)": "17572.33000000",
+            "4a. close (CNY)": "205161.09231600",
+            "4b. close (USD)": "28923.63000000",
+            "5. volume": "2495281.85621700",
+            "6. market cap (USD)": "2495281.85621700"
+        },
+        "2020-11-30": {
+            "1a. open (CNY)": "97822.32120000",
+            "1b. open (USD)": "13791.00000000",
+            "2a. high (CNY)": "140893.36651200",
+            "2b. high (USD)": "19863.16000000",
+            "3a. low (CNY)": "93595.12866000",
+            "3b. low (USD)": "13195.05000000",
+            "4a. close (CNY)": "139706.74508400",
+            "4b. close (USD)": "19695.87000000",
+            "5. volume": "2707064.91116500",
+            "6. market cap (USD)": "2707064.91116500"
+        },
+        "2020-10-31": {
+            "1a. open (CNY)": "76440.50818800",
+            "1b. open (USD)": "10776.59000000",
+            "2a. high (CNY)": "100014.12000000",
+            "2b. high (USD)": "14100.00000000",
+            "3a. low (CNY)": "73584.85680000",
+            "3b. low (USD)": "10374.00000000",
+            "4a. close (CNY)": "97822.32120000",
+            "4b. close (USD)": "13791.00000000",
+            "5. volume": "1592634.41994600",
+            "6. market cap (USD)": "1592634.41994600"
+        }
+    }
+}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>DIGITAL_CURRENCY_WEEKLY</span>
+						<span class='test-time'>Jun 1, 2023 06:30:19 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jun 1, 2023 06:30:19 PM</span>
+	<span class='label end-time'>Jun 1, 2023 06:30:20 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+623ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:30:20 PM</td>
+					<td class='step-details'>Digital Weekly Exchange rate recieved{
+    "Meta Data": {
+        "1. Information": "Weekly Prices and Volumes for Digital Currency",
+        "2. Digital Currency Code": "BTC",
+        "3. Digital Currency Name": "Bitcoin",
+        "4. Market Code": "CNY",
+        "5. Market Name": "Chinese Yuan",
+        "6. Last Refreshed": "2023-06-02 00:00:00",
+        "7. Time Zone": "UTC"
+    },
+    "Time Series (Digital Currency Weekly)": {
+        "2023-06-02": {
+            "1a. open (CNY)": "199070.72893200",
+            "1b. open (USD)": "28065.01000000",
+            "2a. high (CNY)": "201781.25344800",
+            "2b. high (USD)": "28447.14000000",
+            "3a. low (CNY)": "188714.94066000",
+            "3b. low (USD)": "26605.05000000",
+            "4a. close (CNY)": "189761.11672800",
+            "4b. close (USD)": "26752.54000000",
+            "5. volume": "161864.70937000",
+            "6. market cap (USD)": "161864.70937000"
+        },
+        "2023-05-28": {
+            "1a. open (CNY)": "189727.35309600",
+            "1b. open (USD)": "26747.78000000",
+            "2a. high (CNY)": "200463.19502400",
+            "2b. high (USD)": "28261.32000000",
+            "3a. low (CNY)": "183514.49014800",
+            "3b. low (USD)": "25871.89000000",
+            "4a. close (CNY)": "199070.65800000",
+            "4b. close (USD)": "28065.00000000",
+            "5. volume": "251061.07389000",
+            "6. market cap (USD)": "251061.07389000"
+        },
+        "2023-05-21": {
+            "1a. open (CNY)": "190931.99125200",
+            "1b. open (USD)": "26917.61000000",
+            "2a. high (CNY)": "196223.37658800",
+            "2b. high (USD)": "27663.59000000",
+            "3a. low (CNY)": "186985.26384000",
+            "3b. low (USD)": "26361.20000000",
+            "4a. close (CNY)": "189727.35309600",
+            "4b. close (USD)": "26747.78000000",
+            "5. volume": "230394.72253000",
+            "6. market cap (USD)": "230394.72253000"
+        },
+        "2023-05-14": {
+            "1a. open (CNY)": "201660.31438800",
+            "1b. open (USD)": "28430.09000000",
+            "2a. high (CNY)": "203085.48013200",
+            "2b. high (USD)": "28631.01000000",
+            "3a. low (CNY)": "183085.84807200",
+            "3b. low (USD)": "25811.46000000",
+            "4a. close (CNY)": "190932.06218400",
+            "4b. close (USD)": "26917.62000000",
+            "5. volume": "338765.74243000",
+            "6. market cap (USD)": "338765.74243000"
+        },
+        "2023-05-07": {
+            "1a. open (CNY)": "207356.93424000",
+            "1b. open (USD)": "29233.20000000",
+            "2a. high (CNY)": "211519.22400000",
+            "2b. high (USD)": "29820.00000000",
+            "3a. low (CNY)": "196247.20974000",
+            "3b. low (USD)": "27666.95000000",
+            "4a. close (CNY)": "201660.38532000",
+            "4b. close (USD)": "28430.10000000",
+            "5. volume": "360117.97447000",
+            "6. market cap (USD)": "360117.97447000"
+        },
+        "2023-04-30": {
+            "1a. open (CNY)": "195705.57298800",
+            "1b. open (USD)": "27590.59000000",
+            "2a. high (CNY)": "213051.35520000",
+            "2b. high (USD)": "30036.00000000",
+            "3a. low (CNY)": "191110.81082400",
+            "3b. low (USD)": "26942.82000000",
+            "4a. close (CNY)": "207357.00517200",
+            "4b. close (USD)": "29233.21000000",
+            "5. volume": "444613.47701000",
+            "6. market cap (USD)": "444613.47701000"
+        },
+        "2023-04-23": {
+            "1a. open (CNY)": "214957.01431200",
+            "1b. open (USD)": "30304.66000000",
+            "2a. high (CNY)": "216236.20200000",
+            "2b. high (USD)": "30485.00000000",
+            "3a. low (CNY)": "192403.05000000",
+            "3b. low (USD)": "27125.00000000",
+            "4a. close (CNY)": "195705.64392000",
+            "4b. close (USD)": "27590.60000000",
+            "5. volume": "430421.84646000",
+            "6. market cap (USD)": "430421.84646000"
+        },
+        "2023-04-16": {
+            "1a. open (CNY)": "200906.09443200",
+            "1b. open (USD)": "28323.76000000",
+            "2a. high (CNY)": "219889.20000000",
+            "2b. high (USD)": "31000.00000000",
+            "3a. low (CNY)": "199815.44400000",
+            "3b. low (USD)": "28170.00000000",
+            "4a. close (CNY)": "214956.94338000",
+            "4b. close (USD)": "30304.65000000",
+            "5. volume": "377573.74044000",
+            "6. market cap (USD)": "377573.74044000"
+        },
+        "2023-04-09": {
+            "1a. open (CNY)": "199828.70828400",
+            "1b. open (USD)": "28171.87000000",
+            "2a. high (CNY)": "204106.83000000",
+            "2b. high (USD)": "28775.00000000",
+            "3a. low (CNY)": "192936.74236800",
+            "3b. low (USD)": "27200.24000000",
+            "4a. close (CNY)": "200906.09443200",
+            "4b. close (USD)": "28323.76000000",
+            "5. volume": "306532.39014000",
+            "6. market cap (USD)": "306532.39014000"
+        },
+        "2023-04-02": {
+            "1a. open (CNY)": "198382.97226000",
+            "1b. open (USD)": "27968.05000000",
+            "2a. high (CNY)": "207012.77217600",
+            "2b. high (USD)": "29184.68000000",
+            "3a. low (CNY)": "188027.53864800",
+            "3b. low (USD)": "26508.14000000",
+            "4a. close (CNY)": "199828.70828400",
+            "4b. close (USD)": "28171.87000000",
+            "5. volume": "500795.73087000",
+            "6. market cap (USD)": "500795.73087000"
+        },
+        "2023-03-26": {
+            "1a. open (CNY)": "198417.16148400",
+            "1b. open (USD)": "27972.87000000",
+            "2a. high (CNY)": "204766.85226000",
+            "2b. high (USD)": "28868.05000000",
+            "3a. low (CNY)": "188691.88776000",
+            "3b. low (USD)": "26601.80000000",
+            "4a. close (CNY)": "198382.97226000",
+            "4b. close (USD)": "27968.05000000",
+            "5. volume": "1437828.84706000",
+            "6. market cap (USD)": "1437828.84706000"
+        },
+        "2023-03-19": {
+            "1a. open (CNY)": "156036.56826000",
+            "1b. open (USD)": "21998.05000000",
+            "2a. high (CNY)": "201376.65732000",
+            "2b. high (USD)": "28390.10000000",
+            "3a. low (CNY)": "154730.21361600",
+            "3b. low (USD)": "21813.88000000",
+            "4a. close (CNY)": "198417.16148400",
+            "4b. close (USD)": "27972.87000000",
+            "5. volume": "3775888.94983000",
+            "6. market cap (USD)": "3775888.94983000"
+        },
+        "2023-03-12": {
+            "1a. open (CNY)": "159102.17836800",
+            "1b. open (USD)": "22430.24000000",
+            "2a. high (CNY)": "160321.85410800",
+            "2b. high (USD)": "22602.19000000",
+            "3a. low (CNY)": "138665.60518800",
+            "3b. low (USD)": "19549.09000000",
+            "4a. close (CNY)": "156029.90065200",
+            "4b. close (USD)": "21997.11000000",
+            "5. volume": "2718623.72856000",
+            "6. market cap (USD)": "2718623.72856000"
+        },
+        "2023-03-05": {
+            "1a. open (CNY)": "167079.26202000",
+            "1b. open (USD)": "23554.85000000",
+            "2a. high (CNY)": "170236.80000000",
+            "2b. high (USD)": "24000.00000000",
+            "3a. low (CNY)": "155845.61931600",
+            "3b. low (USD)": "21971.13000000",
+            "4a. close (CNY)": "159102.17836800",
+            "4b. close (USD)": "22430.24000000",
+            "5. volume": "1698503.29143000",
+            "6. market cap (USD)": "1698503.29143000"
+        },
+        "2023-02-26": {
+            "1a. open (CNY)": "172169.76793200",
+            "1b. open (USD)": "24272.51000000",
+            "2a. high (CNY)": "179103.30000000",
+            "2b. high (USD)": "25250.00000000",
+            "3a. low (CNY)": "161171.69040000",
+            "3b. low (USD)": "22722.00000000",
+            "4a. close (CNY)": "167079.26202000",
+            "4b. close (USD)": "23554.85000000",
+            "5. volume": "2237983.72753000",
+            "6. market cap (USD)": "2237983.72753000"
+        },
+        "2023-02-19": {
+            "1a. open (CNY)": "154506.70688400",
+            "1b. open (USD)": "21782.37000000",
+            "2a. high (CNY)": "179103.30000000",
+            "2b. high (USD)": "25250.00000000",
+            "3a. low (CNY)": "151447.40972400",
+            "3b. low (USD)": "21351.07000000",
+            "4a. close (CNY)": "172164.44803200",
+            "4b. close (USD)": "24271.76000000",
+            "5. volume": "2497565.47508000",
+            "6. market cap (USD)": "2497565.47508000"
+        },
+        "2023-02-12": {
+            "1a. open (CNY)": "162667.71721200",
+            "1b. open (USD)": "22932.91000000",
+            "2a. high (CNY)": "166349.72640000",
+            "2b. high (USD)": "23452.00000000",
+            "3a. low (CNY)": "152156.23320000",
+            "3b. low (USD)": "21451.00000000",
+            "4a. close (CNY)": "154515.00592800",
+            "4b. close (USD)": "21783.54000000",
+            "5. volume": "1976378.51282000",
+            "6. market cap (USD)": "1976378.51282000"
+        },
+        "2023-02-05": {
+            "1a. open (CNY)": "168416.47208400",
+            "1b. open (USD)": "23743.37000000",
+            "2a. high (CNY)": "172045.56600000",
+            "2b. high (USD)": "24255.00000000",
+            "3a. low (CNY)": "159597.00000000",
+            "3b. low (USD)": "22500.00000000",
+            "4a. close (CNY)": "162667.71721200",
+            "4b. close (USD)": "22932.91000000",
+            "5. volume": "1949971.72168000",
+            "6. market cap (USD)": "1949971.72168000"
+        },
+        "2023-01-29": {
+            "1a. open (CNY)": "161058.34106400",
+            "1b. open (USD)": "22706.02000000",
+            "2a. high (CNY)": "169956.90232800",
+            "2b. high (USD)": "23960.54000000",
+            "3a. low (CNY)": "158178.36000000",
+            "3b. low (USD)": "22300.00000000",
+            "4a. close (CNY)": "168408.88236000",
+            "4b. close (USD)": "23742.30000000",
+            "5. volume": "1946352.79600000",
+            "6. market cap (USD)": "1946352.79600000"
+        },
+        "2023-01-22": {
+            "1a. open (CNY)": "148056.29266800",
+            "1b. open (USD)": "20872.99000000",
+            "2a. high (CNY)": "165780.85176000",
+            "2b. high (USD)": "23371.80000000",
+            "3a. low (CNY)": "144751.99638000",
+            "3b. low (USD)": "20407.15000000",
+            "4a. close (CNY)": "161071.53441600",
+            "4b. close (USD)": "22707.88000000",
+            "5. volume": "2108890.06922000",
+            "6. market cap (USD)": "2108890.06922000"
+        },
+        "2023-01-15": {
+            "1a. open (CNY)": "121491.12375600",
+            "1b. open (USD)": "17127.83000000",
+            "2a. high (CNY)": "150787.24560000",
+            "2b. high (USD)": "21258.00000000",
+            "3a. low (CNY)": "121326.77431200",
+            "3b. low (USD)": "17104.66000000",
+            "4a. close (CNY)": "148045.72380000",
+            "4b. close (USD)": "20871.50000000",
+            "5. volume": "2145455.73458000",
+            "6. market cap (USD)": "2145455.73458000"
+        },
+        "2023-01-08": {
+            "1a. open (CNY)": "117868.91024400",
+            "1b. open (USD)": "16617.17000000",
+            "2a. high (CNY)": "121839.82546800",
+            "2b. high (USD)": "17176.99000000",
+            "3a. low (CNY)": "117383.23884000",
+            "3b. low (USD)": "16548.70000000",
+            "4a. close (CNY)": "121491.12375600",
+            "4b. close (USD)": "17127.83000000",
+            "5. volume": "1112349.61417000",
+            "6. market cap (USD)": "1112349.61417000"
+        },
+        "2023-01-01": {
+            "1a. open (CNY)": "119393.52265200",
+            "1b. open (USD)": "16832.11000000",
+            "2a. high (CNY)": "120391.67775600",
+            "2b. high (USD)": "16972.83000000",
+            "3a. low (CNY)": "115853.23560000",
+            "3b. low (USD)": "16333.00000000",
+            "4a. close (CNY)": "117865.93110000",
+            "4b. close (USD)": "16616.75000000",
+            "5. volume": "1028681.78419000",
+            "6. market cap (USD)": "1028681.78419000"
+        },
+        "2022-12-25": {
+            "1a. open (CNY)": "118733.07480000",
+            "1b. open (USD)": "16739.00000000",
+            "2a. high (CNY)": "121019.00036400",
+            "2b. high (USD)": "17061.27000000",
+            "3a. low (CNY)": "115309.18716000",
+            "3b. low (USD)": "16256.30000000",
+            "4a. close (CNY)": "119393.52265200",
+            "4b. close (USD)": "16832.11000000",
+            "5. volume": "1148035.81471000",
+            "6. market cap (USD)": "1148035.81471000"
+        },
+        "2022-12-18": {
+            "1a. open (CNY)": "121187.67666000",
+            "1b. open (USD)": "17085.05000000",
+            "2a. high (CNY)": "130429.40694000",
+            "2b. high (USD)": "18387.95000000",
+            "3a. low (CNY)": "117231.58622400",
+            "3b. low (USD)": "16527.32000000",
+            "4a. close (CNY)": "118727.47117200",
+            "4b. close (USD)": "16738.21000000",
+            "5. volume": "1511897.62621000",
+            "6. market cap (USD)": "1511897.62621000"
+        },
+        "2022-12-11": {
+            "1a. open (CNY)": "121340.88978000",
+            "1b. open (USD)": "17106.65000000",
+            "2a. high (CNY)": "123593.69010000",
+            "2b. high (USD)": "17424.25000000",
+            "3a. low (CNY)": "118306.27695600",
+            "3b. low (USD)": "16678.83000000",
+            "4a. close (CNY)": "121187.67666000",
+            "4b. close (USD)": "17085.05000000",
+            "5. volume": "1443791.97519000",
+            "6. market cap (USD)": "1443791.97519000"
+        },
+        "2022-12-04": {
+            "1a. open (CNY)": "116532.55136400",
+            "1b. open (USD)": "16428.77000000",
+            "2a. high (CNY)": "122882.59680000",
+            "2b. high (USD)": "17324.00000000",
+            "3a. low (CNY)": "113457.64916400",
+            "3b. low (USD)": "15995.27000000",
+            "4a. close (CNY)": "121334.15124000",
+            "4b. close (USD)": "17105.70000000",
+            "5. volume": "1572173.55626000",
+            "6. market cap (USD)": "1572173.55626000"
+        },
+        "2022-11-27": {
+            "1a. open (CNY)": "115473.74940000",
+            "1b. open (USD)": "16279.50000000",
+            "2a. high (CNY)": "119255.34711600",
+            "2b. high (USD)": "16812.63000000",
+            "3a. low (CNY)": "109774.36320000",
+            "3b. low (USD)": "15476.00000000",
+            "4a. close (CNY)": "116532.62229600",
+            "4b. close (USD)": "16428.78000000",
+            "5. volume": "1561058.47958300",
+            "6. market cap (USD)": "1561058.47958300"
+        },
+        "2022-11-20": {
+            "1a. open (CNY)": "115844.58189600",
+            "1b. open (USD)": "16331.78000000",
+            "2a. high (CNY)": "121932.10800000",
+            "2b. high (USD)": "17190.00000000",
+            "3a. low (CNY)": "112180.44757200",
+            "3b. low (USD)": "15815.21000000",
+            "4a. close (CNY)": "115478.92743600",
+            "4b. close (USD)": "16280.23000000",
+            "5. volume": "1626234.48043000",
+            "6. market cap (USD)": "1626234.48043000"
+        },
+        "2022-11-13": {
+            "1a. open (CNY)": "148287.46005600",
+            "1b. open (USD)": "20905.58000000",
+            "2a. high (CNY)": "149452.09256400",
+            "2b. high (USD)": "21069.77000000",
+            "3a. low (CNY)": "110568.80160000",
+            "3b. low (USD)": "15588.00000000",
+            "4a. close (CNY)": "115830.89202000",
+            "4b. close (USD)": "16329.85000000",
+            "5. volume": "3234391.87393200",
+            "6. market cap (USD)": "3234391.87393200"
+        },
+        "2022-11-06": {
+            "1a. open (CNY)": "146314.84113600",
+            "1b. open (USD)": "20627.48000000",
+            "2a. high (CNY)": "152366.54658000",
+            "2b. high (USD)": "21480.65000000",
+            "3a. low (CNY)": "142085.59156800",
+            "3b. low (USD)": "20031.24000000",
+            "4a. close (CNY)": "148287.46005600",
+            "4b. close (USD)": "20905.58000000",
+            "5. volume": "2205754.83045000",
+            "6. market cap (USD)": "2205754.83045000"
+        },
+        "2022-10-30": {
+            "1a. open (CNY)": "138816.76128000",
+            "1b. open (USD)": "19570.40000000",
+            "2a. high (CNY)": "149560.12200000",
+            "2b. high (USD)": "21085.00000000",
+            "3a. low (CNY)": "135884.43240000",
+            "3b. low (USD)": "19157.00000000",
+            "4a. close (CNY)": "146314.84113600",
+            "4b. close (USD)": "20627.48000000",
+            "5. volume": "2026392.42105000",
+            "6. market cap (USD)": "2026392.42105000"
+        },
+        "2022-10-23": {
+            "1a. open (CNY)": "136636.16973600",
+            "1b. open (USD)": "19262.98000000",
+            "2a. high (CNY)": "139783.28071200",
+            "2b. high (USD)": "19706.66000000",
+            "3a. low (CNY)": "132288.18000000",
+            "3b. low (USD)": "18650.00000000",
+            "4a. close (CNY)": "138816.76128000",
+            "4b. close (USD)": "19570.40000000",
+            "5. volume": "1439566.24878000",
+            "6. market cap (USD)": "1439566.24878000"
+        },
+        "2022-10-16": {
+            "1a. open (CNY)": "137891.52427200",
+            "1b. open (USD)": "19439.96000000",
+            "2a. high (CNY)": "141522.60428400",
+            "2b. high (USD)": "19951.87000000",
+            "3a. low (CNY)": "129025.30800000",
+            "3b. low (USD)": "18190.00000000",
+            "4a. close (CNY)": "136636.16973600",
+            "4b. close (USD)": "19262.98000000",
+            "5. volume": "1666942.47921000",
+            "6. market cap (USD)": "1666942.47921000"
+        },
+        "2022-10-09": {
+            "1a. open (CNY)": "135180.36136800",
+            "1b. open (USD)": "19057.74000000",
+            "2a. high (CNY)": "145233.27000000",
+            "2b. high (USD)": "20475.00000000",
+            "3a. low (CNY)": "134484.80217600",
+            "3b. low (USD)": "18959.68000000",
+            "4a. close (CNY)": "137884.85666400",
+            "4b. close (USD)": "19439.02000000",
+            "5. volume": "1690215.44019000",
+            "6. market cap (USD)": "1690215.44019000"
+        },
+        "2022-10-02": {
+            "1a. open (CNY)": "133416.92091600",
+            "1b. open (USD)": "18809.13000000",
+            "2a. high (CNY)": "144600.98215200",
+            "2b. high (USD)": "20385.86000000",
+            "3a. low (CNY)": "131020.48329600",
+            "3b. low (USD)": "18471.28000000",
+            "4a. close (CNY)": "135173.69376000",
+            "4b. close (USD)": "19056.80000000",
+            "5. volume": "2777070.91238000",
+            "6. market cap (USD)": "2777070.91238000"
+        },
+        "2022-09-25": {
+            "1a. open (CNY)": "137731.85634000",
+            "1b. open (USD)": "19417.45000000",
+            "2a. high (CNY)": "141551.89920000",
+            "2b. high (USD)": "19956.00000000",
+            "3a. low (CNY)": "128571.20133600",
+            "3b. low (USD)": "18125.98000000",
+            "4a. close (CNY)": "133404.50781600",
+            "4b. close (USD)": "18807.38000000",
+            "5. volume": "2285541.48793000",
+            "6. market cap (USD)": "2285541.48793000"
+        },
+        "2022-09-18": {
+            "1a. open (CNY)": "154822.35428400",
+            "1b. open (USD)": "21826.87000000",
+            "2a. high (CNY)": "161717.86680000",
+            "2b. high (USD)": "22799.00000000",
+            "3a. low (CNY)": "137040.69493200",
+            "3b. low (USD)": "19320.01000000",
+            "4a. close (CNY)": "137722.84797600",
+            "4b. close (USD)": "19416.18000000",
+            "5. volume": "2218565.59694000",
+            "6. market cap (USD)": "2218565.59694000"
+        },
+        "2022-09-11": {
+            "1a. open (CNY)": "141866.12796000",
+            "1b. open (USD)": "20000.30000000",
+            "2a. high (CNY)": "155057.35200000",
+            "2b. high (USD)": "21860.00000000",
+            "3a. low (CNY)": "131300.59376400",
+            "3b. low (USD)": "18510.77000000",
+            "4a. close (CNY)": "154822.35428400",
+            "4b. close (USD)": "21826.87000000",
+            "5. volume": "2146685.76233000",
+            "6. market cap (USD)": "2146685.76233000"
+        },
+        "2022-09-04": {
+            "1a. open (CNY)": "138711.85285200",
+            "1b. open (USD)": "19555.61000000",
+            "2a. high (CNY)": "145951.45650000",
+            "2b. high (USD)": "20576.25000000",
+            "3a. low (CNY)": "138601.12800000",
+            "3b. low (USD)": "19540.00000000",
+            "4a. close (CNY)": "141866.12796000",
+            "4b. close (USD)": "20000.30000000",
+            "5. volume": "1527594.84529000",
+            "6. market cap (USD)": "1527594.84529000"
+        },
+        "2022-08-28": {
+            "1a. open (CNY)": "152622.25644000",
+            "1b. open (USD)": "21516.70000000",
+            "2a. high (CNY)": "155341.08000000",
+            "2b. high (USD)": "21900.00000000",
+            "3a. low (CNY)": "138459.26400000",
+            "3b. low (USD)": "19520.00000000",
+            "4a. close (CNY)": "138711.85285200",
+            "4b. close (USD)": "19555.61000000",
+            "5. volume": "1343190.86000000",
+            "6. market cap (USD)": "1343190.86000000"
+        },
+        "2022-08-21": {
+            "1a. open (CNY)": "172401.99930000",
+            "1b. open (USD)": "24305.25000000",
+            "2a. high (CNY)": "178828.93502400",
+            "2b. high (USD)": "25211.32000000",
+            "3a. low (CNY)": "147268.30908000",
+            "3b. low (USD)": "20761.90000000",
+            "4a. close (CNY)": "152614.52485200",
+            "4b. close (USD)": "21515.61000000",
+            "5. volume": "1402957.39876000",
+            "6. market cap (USD)": "1402957.39876000"
+        },
+        "2022-08-14": {
+            "1a. open (CNY)": "164380.58314800",
+            "1b. open (USD)": "23174.39000000",
+            "2a. high (CNY)": "177667.35259200",
+            "2b. high (USD)": "25047.56000000",
+            "3a. low (CNY)": "160765.17910800",
+            "3b. low (USD)": "22664.69000000",
+            "4a. close (CNY)": "172401.92836800",
+            "4b. close (USD)": "24305.24000000",
+            "5. volume": "1251083.26468000",
+            "6. market cap (USD)": "1251083.26468000"
+        },
+        "2022-08-07": {
+            "1a. open (CNY)": "165245.74075200",
+            "1b. open (USD)": "23296.36000000",
+            "2a. high (CNY)": "167737.72377600",
+            "2b. high (USD)": "23647.68000000",
+            "3a. low (CNY)": "158887.68000000",
+            "3b. low (USD)": "22400.00000000",
+            "4a. close (CNY)": "164380.58314800",
+            "4b. close (USD)": "23174.39000000",
+            "5. volume": "951140.43388000",
+            "6. market cap (USD)": "951140.43388000"
+        },
+        "2022-07-31": {
+            "1a. open (CNY)": "160144.09851600",
+            "1b. open (USD)": "22577.13000000",
+            "2a. high (CNY)": "174975.05760000",
+            "2b. high (USD)": "24668.00000000",
+            "3a. low (CNY)": "146875.34580000",
+            "3b. low (USD)": "20706.50000000",
+            "4a. close (CNY)": "165224.17742400",
+            "4b. close (USD)": "23293.32000000",
+            "5. volume": "1282264.24492000",
+            "6. market cap (USD)": "1282264.24492000"
+        },
+        "2022-07-24": {
+            "1a. open (CNY)": "147535.58085600",
+            "1b. open (USD)": "20799.58000000",
+            "2a. high (CNY)": "172199.77216800",
+            "2b. high (USD)": "24276.74000000",
+            "3a. low (CNY)": "147272.21034000",
+            "3b. low (USD)": "20762.45000000",
+            "4a. close (CNY)": "160162.18617600",
+            "4b. close (USD)": "22579.68000000",
+            "5. volume": "1336219.23609000",
+            "6. market cap (USD)": "1336219.23609000"
+        },
+        "2022-07-17": {
+            "1a. open (CNY)": "147972.02545200",
+            "1b. open (USD)": "20861.11000000",
+            "2a. high (CNY)": "153812.77912800",
+            "2b. high (USD)": "21684.54000000",
+            "3a. low (CNY)": "134139.07960800",
+            "3b. low (USD)": "18910.94000000",
+            "4a. close (CNY)": "147525.50851200",
+            "4b. close (USD)": "20798.16000000",
+            "5. volume": "1043685.76303000",
+            "6. market cap (USD)": "1043685.76303000"
+        },
+        "2022-07-10": {
+            "1a. open (CNY)": "137011.04535600",
+            "1b. open (USD)": "19315.83000000",
+            "2a. high (CNY)": "159791.14088400",
+            "2b. high (USD)": "22527.37000000",
+            "3a. low (CNY)": "135163.12489200",
+            "3b. low (USD)": "19055.31000000",
+            "4a. close (CNY)": "147981.67220400",
+            "4b. close (USD)": "20862.47000000",
+            "5. volume": "1111996.98071000",
+            "6. market cap (USD)": "1111996.98071000"
+        },
+        "2022-07-03": {
+            "1a. open (CNY)": "149227.30905600",
+            "1b. open (USD)": "21038.08000000",
+            "2a. high (CNY)": "152786.46402000",
+            "2b. high (USD)": "21539.85000000",
+            "3a. low (CNY)": "132117.94320000",
+            "3b. low (USD)": "18626.00000000",
+            "4a. close (CNY)": "137011.04535600",
+            "4b. close (USD)": "19315.83000000",
+            "5. volume": "508544.13970000",
+            "6. market cap (USD)": "508544.13970000"
+        },
+        "2022-06-26": {
+            "1a. open (CNY)": "145935.49680000",
+            "1b. open (USD)": "20574.00000000",
+            "2a. high (CNY)": "155255.96160000",
+            "2b. high (USD)": "21888.00000000",
+            "3a. low (CNY)": "139289.38119600",
+            "3b. low (USD)": "19637.03000000",
+            "4a. close (CNY)": "149227.23812400",
+            "4b. close (USD)": "21038.07000000",
+            "5. volume": "570801.23178000",
+            "6. market cap (USD)": "570801.23178000"
+        },
+        "2022-06-19": {
+            "1a. open (CNY)": "188498.45619600",
+            "1b. open (USD)": "26574.53000000",
+            "2a. high (CNY)": "190777.57228800",
+            "2b. high (USD)": "26895.84000000",
+            "3a. low (CNY)": "124996.37040000",
+            "3b. low (USD)": "17622.00000000",
+            "4a. close (CNY)": "145935.49680000",
+            "4b. close (USD)": "20574.00000000",
+            "5. volume": "1153717.63753700",
+            "6. market cap (USD)": "1153717.63753700"
+        },
+        "2022-06-12": {
+            "1a. open (CNY)": "212222.86944000",
+            "1b. open (USD)": "29919.20000000",
+            "2a. high (CNY)": "225320.03764800",
+            "2b. high (USD)": "31765.64000000",
+            "3a. low (CNY)": "188395.39200000",
+            "3b. low (USD)": "26560.00000000",
+            "4a. close (CNY)": "188498.45619600",
+            "4b. close (USD)": "26574.53000000",
+            "5. volume": "528925.48795900",
+            "6. market cap (USD)": "528925.48795900"
+        },
+        "2022-06-05": {
+            "1a. open (CNY)": "209023.12692000",
+            "1b. open (USD)": "29468.10000000",
+            "2a. high (CNY)": "229812.58680000",
+            "2b. high (USD)": "32399.00000000",
+            "3a. low (CNY)": "207705.63595200",
+            "3b. low (USD)": "29282.36000000",
+            "4a. close (CNY)": "212222.94037200",
+            "4b. close (USD)": "29919.21000000",
+            "5. volume": "422401.40352000",
+            "6. market cap (USD)": "422401.40352000"
+        },
+        "2022-05-29": {
+            "1a. open (CNY)": "214880.90427600",
+            "1b. open (USD)": "30293.93000000",
+            "2a. high (CNY)": "217552.06153200",
+            "2b. high (USD)": "30670.51000000",
+            "3a. low (CNY)": "198748.34299200",
+            "3b. low (USD)": "28019.56000000",
+            "4a. close (CNY)": "209023.12692000",
+            "4b. close (USD)": "29468.10000000",
+            "5. volume": "430508.71991000",
+            "6. market cap (USD)": "430508.71991000"
+        },
+        "2022-05-22": {
+            "1a. open (CNY)": "222222.08254800",
+            "1b. open (USD)": "31328.89000000",
+            "2a. high (CNY)": "222222.15348000",
+            "2b. high (USD)": "31328.90000000",
+            "3a. low (CNY)": "203251.88660400",
+            "3b. low (USD)": "28654.47000000",
+            "4a. close (CNY)": "214880.97520800",
+            "4b. close (USD)": "30293.94000000",
+            "5. volume": "375096.22376000",
+            "6. market cap (USD)": "375096.22376000"
+        },
+        "2022-05-15": {
+            "1a. open (CNY)": "241441.10794800",
+            "1b. open (USD)": "34038.39000000",
+            "2a. high (CNY)": "242893.51158000",
+            "2b. high (USD)": "34243.15000000",
+            "3a. low (CNY)": "189388.44000000",
+            "3b. low (USD)": "26700.00000000",
+            "4a. close (CNY)": "222222.08254800",
+            "4b. close (USD)": "31328.89000000",
+            "5. volume": "964223.84927400",
+            "6. market cap (USD)": "964223.84927400"
+        },
+        "2022-05-08": {
+            "1a. open (CNY)": "272863.70022000",
+            "1b. open (USD)": "38468.35000000",
+            "2a. high (CNY)": "283896.60536400",
+            "2b. high (USD)": "40023.77000000",
+            "3a. low (CNY)": "239139.79014000",
+            "3b. low (USD)": "33713.95000000",
+            "4a. close (CNY)": "241441.17888000",
+            "4b. close (USD)": "34038.40000000",
+            "5. volume": "419979.58290000",
+            "6. market cap (USD)": "419979.58290000"
+        },
+        "2022-05-01": {
+            "1a. open (CNY)": "279827.59118400",
+            "1b. open (USD)": "39450.12000000",
+            "2a. high (CNY)": "289383.47929200",
+            "2b. high (USD)": "40797.31000000",
+            "3a. low (CNY)": "265189.07061600",
+            "3b. low (USD)": "37386.38000000",
+            "4a. close (CNY)": "272863.70022000",
+            "4b. close (USD)": "38468.35000000",
+            "5. volume": "368444.26814000",
+            "6. market cap (USD)": "368444.26814000"
+        },
+        "2022-04-24": {
+            "1a. open (CNY)": "281444.76985200",
+            "1b. open (USD)": "39678.11000000",
+            "2a. high (CNY)": "304837.36320000",
+            "2b. high (USD)": "42976.00000000",
+            "3a. low (CNY)": "273347.17273200",
+            "3b. low (USD)": "38536.51000000",
+            "4a. close (CNY)": "279827.66211600",
+            "4b. close (USD)": "39450.13000000",
+            "5. volume": "283885.03637000",
+            "6. market cap (USD)": "283885.03637000"
+        },
+        "2022-04-17": {
+            "1a. open (CNY)": "299041.15482000",
+            "1b. open (USD)": "42158.85000000",
+            "2a. high (CNY)": "300856.02097200",
+            "2b. high (USD)": "42414.71000000",
+            "3a. low (CNY)": "278053.44000000",
+            "3b. low (USD)": "39200.00000000",
+            "4a. close (CNY)": "281444.84078400",
+            "4b. close (USD)": "39678.12000000",
+            "5. volume": "259281.04870000",
+            "6. market cap (USD)": "259281.04870000"
+        },
+        "2022-04-10": {
+            "1a. open (CNY)": "329176.68595200",
+            "1b. open (USD)": "46407.36000000",
+            "2a. high (CNY)": "334799.04000000",
+            "2b. high (USD)": "47200.00000000",
+            "3a. low (CNY)": "296978.09760000",
+            "3b. low (USD)": "41868.00000000",
+            "4a. close (CNY)": "299041.15482000",
+            "4b. close (USD)": "42158.85000000",
+            "5. volume": "268118.29111000",
+            "6. market cap (USD)": "268118.29111000"
+        },
+        "2022-04-03": {
+            "1a. open (CNY)": "332158.66723200",
+            "1b. open (USD)": "46827.76000000",
+            "2a. high (CNY)": "341820.17308800",
+            "2b. high (USD)": "48189.84000000",
+            "3a. low (CNY)": "313519.44000000",
+            "3b. low (USD)": "44200.00000000",
+            "4a. close (CNY)": "329176.61502000",
+            "4b. close (USD)": "46407.35000000",
+            "5. volume": "312053.15964000",
+            "6. market cap (USD)": "312053.15964000"
+        },
+        "2022-03-27": {
+            "1a. open (CNY)": "292680.39865200",
+            "1b. open (USD)": "41262.11000000",
+            "2a. high (CNY)": "333373.30680000",
+            "2b. high (USD)": "46999.00000000",
+            "3a. low (CNY)": "287047.19200800",
+            "3b. low (USD)": "40467.94000000",
+            "4a. close (CNY)": "332158.66723200",
+            "4b. close (USD)": "46827.76000000",
+            "5. volume": "315436.15044000",
+            "6. market cap (USD)": "315436.15044000"
+        },
+        "2022-03-20": {
+            "1a. open (CNY)": "267962.29902000",
+            "1b. open (USD)": "37777.35000000",
+            "2a. high (CNY)": "300751.68000000",
+            "2b. high (USD)": "42400.00000000",
+            "3a. low (CNY)": "266385.12600000",
+            "3b. low (USD)": "37555.00000000",
+            "4a. close (CNY)": "292680.39865200",
+            "4b. close (USD)": "41262.11000000",
+            "5. volume": "323399.67100000",
+            "6. market cap (USD)": "323399.67100000"
+        },
+        "2022-03-13": {
+            "1a. open (CNY)": "272526.41856000",
+            "1b. open (USD)": "38420.80000000",
+            "2a. high (CNY)": "302128.18639200",
+            "2b. high (USD)": "42594.06000000",
+            "3a. low (CNY)": "263547.84600000",
+            "3b. low (USD)": "37155.00000000",
+            "4a. close (CNY)": "267962.22808800",
+            "4b. close (USD)": "37777.34000000",
+            "5. volume": "374777.65361000",
+            "6. market cap (USD)": "374777.65361000"
+        },
+        "2022-03-06": {
+            "1a. open (CNY)": "267407.11425600",
+            "1b. open (USD)": "37699.08000000",
+            "2a. high (CNY)": "322031.28000000",
+            "2b. high (USD)": "45400.00000000",
+            "3a. low (CNY)": "265641.54584400",
+            "3b. low (USD)": "37450.17000000",
+            "4a. close (CNY)": "272526.48949200",
+            "4b. close (USD)": "38420.81000000",
+            "5. volume": "376417.07830000",
+            "6. market cap (USD)": "376417.07830000"
+        },
+        "2022-02-27": {
+            "1a. open (CNY)": "272285.88814800",
+            "1b. open (USD)": "38386.89000000",
+            "2a. high (CNY)": "286199.62554000",
+            "2b. high (USD)": "40348.45000000",
+            "3a. low (CNY)": "243454.79649600",
+            "3b. low (USD)": "34322.28000000",
+            "4a. close (CNY)": "267407.04332400",
+            "4b. close (USD)": "37699.07000000",
+            "5. volume": "412335.93267000",
+            "6. market cap (USD)": "412335.93267000"
+        },
+        "2022-02-20": {
+            "1a. open (CNY)": "298294.95018000",
+            "1b. open (USD)": "42053.65000000",
+            "2a. high (CNY)": "317430.63048000",
+            "2b. high (USD)": "44751.40000000",
+            "3a. low (CNY)": "269541.60000000",
+            "3b. low (USD)": "38000.00000000",
+            "4a. close (CNY)": "272285.88814800",
+            "4b. close (USD)": "38386.89000000",
+            "5. volume": "243150.46162000",
+            "6. market cap (USD)": "243150.46162000"
+        },
+        "2022-02-13": {
+            "1a. open (CNY)": "300615.98708400",
+            "1b. open (USD)": "42380.87000000",
+            "2a. high (CNY)": "325017.51720000",
+            "2b. high (USD)": "45821.00000000",
+            "3a. low (CNY)": "295402.34322000",
+            "3b. low (USD)": "41645.85000000",
+            "4a. close (CNY)": "298295.02111200",
+            "4b. close (USD)": "42053.66000000",
+            "5. volume": "301990.47877000",
+            "6. market cap (USD)": "301990.47877000"
+        },
+        "2022-02-06": {
+            "1a. open (CNY)": "268702.82910000",
+            "1b. open (USD)": "37881.75000000",
+            "2a. high (CNY)": "302567.53920000",
+            "2b. high (USD)": "42656.00000000",
+            "3a. low (CNY)": "257128.50000000",
+            "3b. low (USD)": "36250.00000000",
+            "4a. close (CNY)": "300615.98708400",
+            "4b. close (USD)": "42380.87000000",
+            "5. volume": "258946.95322000",
+            "6. market cap (USD)": "258946.95322000"
+        },
+        "2022-01-30": {
+            "1a. open (CNY)": "257089.84206000",
+            "1b. open (USD)": "36244.55000000",
+            "2a. high (CNY)": "276067.20213600",
+            "2b. high (USD)": "38919.98000000",
+            "3a. low (CNY)": "233488.07024400",
+            "3b. low (USD)": "32917.17000000",
+            "4a. close (CNY)": "268702.90003200",
+            "4b. close (USD)": "37881.76000000",
+            "5. volume": "353702.62639100",
+            "6. market cap (USD)": "353702.62639100"
+        },
+        "2022-01-23": {
+            "1a. open (CNY)": "305515.89871200",
+            "1b. open (USD)": "43071.66000000",
+            "2a. high (CNY)": "308589.66600000",
+            "2b. high (USD)": "43505.00000000",
+            "3a. low (CNY)": "241225.54560000",
+            "3b. low (USD)": "34008.00000000",
+            "4a. close (CNY)": "257089.84206000",
+            "4b. close (USD)": "36244.55000000",
+            "5. volume": "354513.98432000",
+            "6. market cap (USD)": "354513.98432000"
+        },
+        "2022-01-16": {
+            "1a. open (CNY)": "296954.12258400",
+            "1b. open (USD)": "41864.62000000",
+            "2a. high (CNY)": "315647.40000000",
+            "2b. high (USD)": "44500.00000000",
+            "3a. low (CNY)": "281245.38000000",
+            "3b. low (USD)": "39650.00000000",
+            "4a. close (CNY)": "305515.89871200",
+            "4b. close (USD)": "43071.66000000",
+            "5. volume": "232059.06969000",
+            "6. market cap (USD)": "232059.06969000"
+        },
+        "2022-01-09": {
+            "1a. open (CNY)": "335410.33197600",
+            "1b. open (USD)": "47286.18000000",
+            "2a. high (CNY)": "337423.52400000",
+            "2b. high (USD)": "47570.00000000",
+            "3a. low (CNY)": "287281.69320000",
+            "3b. low (USD)": "40501.00000000",
+            "4a. close (CNY)": "296954.12258400",
+            "4b. close (USD)": "41864.62000000",
+            "5. volume": "264331.61587000",
+            "6. market cap (USD)": "264331.61587000"
+        },
+        "2022-01-02": {
+            "1a. open (CNY)": "360160.63473600",
+            "1b. open (USD)": "50775.48000000",
+            "2a. high (CNY)": "369470.60160000",
+            "2b. high (USD)": "52088.00000000",
+            "3a. low (CNY)": "324003.18960000",
+            "3b. low (USD)": "45678.00000000",
+            "4a. close (CNY)": "335410.33197600",
+            "4b. close (USD)": "47286.18000000",
+            "5. volume": "217379.64220000",
+            "6. market cap (USD)": "217379.64220000"
+        },
+        "2021-12-26": {
+            "1a. open (CNY)": "331119.37156800",
+            "1b. open (USD)": "46681.24000000",
+            "2a. high (CNY)": "367498.69200000",
+            "2b. high (USD)": "51810.00000000",
+            "3a. low (CNY)": "323158.03482000",
+            "3b. low (USD)": "45558.85000000",
+            "4a. close (CNY)": "360160.70566800",
+            "4b. close (USD)": "50775.49000000",
+            "5. volume": "209149.42595000",
+            "6. market cap (USD)": "209149.42595000"
+        },
+        "2021-12-19": {
+            "1a. open (CNY)": "355042.32348000",
+            "1b. open (USD)": "50053.90000000",
+            "2a. high (CNY)": "356007.49520400",
+            "2b. high (USD)": "50189.97000000",
+            "3a. low (CNY)": "322428.49920000",
+            "3b. low (USD)": "45456.00000000",
+            "4a. close (CNY)": "331119.30063600",
+            "4b. close (USD)": "46681.23000000",
+            "5. volume": "271834.80183000",
+            "6. market cap (USD)": "271834.80183000"
+        },
+        "2021-12-12": {
+            "1a. open (CNY)": "350377.97702400",
+            "1b. open (USD)": "49396.32000000",
+            "2a. high (CNY)": "368394.77595600",
+            "2b. high (USD)": "51936.33000000",
+            "3a. low (CNY)": "331614.19320000",
+            "3b. low (USD)": "46751.00000000",
+            "4a. close (CNY)": "355042.32348000",
+            "4b. close (USD)": "50053.90000000",
+            "5. volume": "272083.99753000",
+            "6. market cap (USD)": "272083.99753000"
+        },
+        "2021-12-05": {
+            "1a. open (CNY)": "406262.24974800",
+            "1b. open (USD)": "57274.89000000",
+            "2a. high (CNY)": "419754.22546800",
+            "2b. high (USD)": "59176.99000000",
+            "3a. low (CNY)": "297916.52796000",
+            "3b. low (USD)": "42000.30000000",
+            "4a. close (CNY)": "350378.04795600",
+            "4b. close (USD)": "49396.33000000",
+            "5. volume": "390528.91248800",
+            "6. market cap (USD)": "390528.91248800"
+        },
+        "2021-11-28": {
+            "1a. open (CNY)": "415787.06964000",
+            "1b. open (USD)": "58617.70000000",
+            "2a. high (CNY)": "421648.18080000",
+            "2b. high (USD)": "59444.00000000",
+            "3a. low (CNY)": "377759.99884800",
+            "3b. low (USD)": "53256.64000000",
+            "4a. close (CNY)": "406262.17881600",
+            "4b. close (USD)": "57274.88000000",
+            "5. volume": "315216.31943000",
+            "6. market cap (USD)": "315216.31943000"
+        },
+        "2021-11-21": {
+            "1a. open (CNY)": "464740.15105200",
+            "1b. open (USD)": "65519.11000000",
+            "2a. high (CNY)": "471001.38962400",
+            "2b. high (USD)": "66401.82000000",
+            "3a. low (CNY)": "394381.92000000",
+            "3b. low (USD)": "55600.00000000",
+            "4a. close (CNY)": "415817.71226400",
+            "4b. close (USD)": "58622.02000000",
+            "5. volume": "340150.61676000",
+            "6. market cap (USD)": "340150.61676000"
+        },
+        "2021-11-14": {
+            "1a. open (CNY)": "448812.15765600",
+            "1b. open (USD)": "63273.58000000",
+            "2a. high (CNY)": "489430.80000000",
+            "2b. high (USD)": "69000.00000000",
+            "3a. low (CNY)": "441750.30960000",
+            "3b. low (USD)": "62278.00000000",
+            "4a. close (CNY)": "464740.08012000",
+            "4b. close (USD)": "65519.10000000",
+            "5. volume": "294213.11270800",
+            "6. market cap (USD)": "294213.11270800"
+        },
+        "2021-11-07": {
+            "1a. open (CNY)": "434811.81229200",
+            "1b. open (USD)": "61299.81000000",
+            "2a. high (CNY)": "455879.96400000",
+            "2b. high (USD)": "64270.00000000",
+            "3a. low (CNY)": "421371.54600000",
+            "3b. low (USD)": "59405.00000000",
+            "4a. close (CNY)": "448812.22858800",
+            "4b. close (USD)": "63273.59000000",
+            "5. volume": "253033.72432000",
+            "6. market cap (USD)": "253033.72432000"
+        },
+        "2021-10-31": {
+            "1a. open (CNY)": "431636.96690400",
+            "1b. open (USD)": "60852.22000000",
+            "2a. high (CNY)": "451912.24071600",
+            "2b. high (USD)": "63710.63000000",
+            "3a. low (CNY)": "410128.82400000",
+            "3b. low (USD)": "57820.00000000",
+            "4a. close (CNY)": "434811.74136000",
+            "4b. close (USD)": "61299.80000000",
+            "5. volume": "314971.84980000",
+            "6. market cap (USD)": "314971.84980000"
+        },
+        "2021-10-24": {
+            "1a. open (CNY)": "436432.67942400",
+            "1b. open (USD)": "61528.32000000",
+            "2a. high (CNY)": "475244.40000000",
+            "2b. high (USD)": "67000.00000000",
+            "3a. low (CNY)": "422120.80071600",
+            "3b. low (USD)": "59510.63000000",
+            "4a. close (CNY)": "431636.96690400",
+            "4b. close (USD)": "60852.22000000",
+            "5. volume": "336367.00881000",
+            "6. market cap (USD)": "336367.00881000"
+        },
+        "2021-10-17": {
+            "1a. open (CNY)": "387707.28973200",
+            "1b. open (USD)": "54659.01000000",
+            "2a. high (CNY)": "446396.35560000",
+            "2b. high (USD)": "62933.00000000",
+            "3a. low (CNY)": "382174.52280000",
+            "3b. low (USD)": "53879.00000000",
+            "4a. close (CNY)": "436432.75035600",
+            "4b. close (USD)": "61528.33000000",
+            "5. volume": "362346.26317400",
+            "6. market cap (USD)": "362346.26317400"
+        },
+        "2021-10-10": {
+            "1a. open (CNY)": "341892.31093200",
+            "1b. open (USD)": "48200.01000000",
+            "2a. high (CNY)": "401200.68409200",
+            "2b. high (USD)": "56561.31000000",
+            "3a. low (CNY)": "332607.24120000",
+            "3b. low (USD)": "46891.00000000",
+            "4a. close (CNY)": "387707.21880000",
+            "4b. close (USD)": "54659.00000000",
+            "5. volume": "424292.25859900",
+            "6. market cap (USD)": "424292.25859900"
+        },
+        "2021-10-03": {
+            "1a. open (CNY)": "306148.89588000",
+            "1b. open (USD)": "43160.90000000",
+            "2a. high (CNY)": "349184.61705600",
+            "2b. high (USD)": "49228.08000000",
+            "3a. low (CNY)": "289075.42161600",
+            "3b. low (USD)": "40753.88000000",
+            "4a. close (CNY)": "341892.31093200",
+            "4b. close (USD)": "48200.01000000",
+            "5. volume": "290620.78115000",
+            "6. market cap (USD)": "290620.78115000"
+        },
+        "2021-09-26": {
+            "1a. open (CNY)": "335095.18110000",
+            "1b. open (USD)": "47241.75000000",
+            "2a. high (CNY)": "335843.51370000",
+            "2b. high (USD)": "47347.25000000",
+            "3a. low (CNY)": "280890.72000000",
+            "3b. low (USD)": "39600.00000000",
+            "4a. close (CNY)": "306148.89588000",
+            "4b. close (USD)": "43160.90000000",
+            "5. volume": "437174.23273000",
+            "6. market cap (USD)": "437174.23273000"
+        },
+        "2021-09-19": {
+            "1a. open (CNY)": "326466.16143600",
+            "1b. open (USD)": "46025.23000000",
+            "2a. high (CNY)": "346454.58624000",
+            "2b. high (USD)": "48843.20000000",
+            "3a. low (CNY)": "307632.08400000",
+            "3b. low (USD)": "43370.00000000",
+            "4a. close (CNY)": "335095.18110000",
+            "4b. close (USD)": "47241.75000000",
+            "5. volume": "289430.44387000",
+            "6. market cap (USD)": "289430.44387000"
+        },
+        "2021-09-12": {
+            "1a. open (CNY)": "367121.90121600",
+            "1b. open (USD)": "51756.88000000",
+            "2a. high (CNY)": "375372.14400000",
+            "2b. high (USD)": "52920.00000000",
+            "3a. low (CNY)": "303894.32226000",
+            "3b. low (USD)": "42843.05000000",
+            "4a. close (CNY)": "326466.23236800",
+            "4b. close (USD)": "46025.24000000",
+            "5. volume": "399602.39982000",
+            "6. market cap (USD)": "399602.39982000"
+        },
+        "2021-09-05": {
+            "1a. open (CNY)": "345920.04268800",
+            "1b. open (USD)": "48767.84000000",
+            "2a. high (CNY)": "368137.08000000",
+            "2b. high (USD)": "51900.00000000",
+            "3a. low (CNY)": "329918.91840000",
+            "3b. low (USD)": "46512.00000000",
+            "4a. close (CNY)": "367121.90121600",
+            "4b. close (USD)": "51756.88000000",
+            "5. volume": "327484.44363800",
+            "6. market cap (USD)": "327484.44363800"
+        },
+        "2021-08-29": {
+            "1a. open (CNY)": "349263.63530400",
+            "1b. open (USD)": "49239.22000000",
+            "2a. high (CNY)": "358206.60000000",
+            "2b. high (USD)": "50500.00000000",
+            "3a. low (CNY)": "328060.50000000",
+            "3b. low (USD)": "46250.00000000",
+            "4a. close (CNY)": "345919.97175600",
+            "4b. close (USD)": "48767.83000000",
+            "5. volume": "298905.69704200",
+            "6. market cap (USD)": "298905.69704200"
+        },
+        "2021-08-22": {
+            "1a. open (CNY)": "333194.70002400",
+            "1b. open (USD)": "46973.82000000",
+            "2a. high (CNY)": "352936.63612800",
+            "2b. high (USD)": "49757.04000000",
+            "3a. low (CNY)": "311587.96164000",
+            "3b. low (USD)": "43927.70000000",
+            "4a. close (CNY)": "349263.63530400",
+            "4b. close (USD)": "49239.22000000",
+            "5. volume": "357634.46215500",
+            "6. market cap (USD)": "357634.46215500"
+        },
+        "2021-08-15": {
+            "1a. open (CNY)": "310642.15435200",
+            "1b. open (USD)": "43794.36000000",
+            "2a. high (CNY)": "341495.02080000",
+            "2b. high (USD)": "48144.00000000",
+            "3a. low (CNY)": "303440.00280000",
+            "3b. low (USD)": "42779.00000000",
+            "4a. close (CNY)": "333194.70002400",
+            "4b. close (USD)": "46973.82000000",
+            "5. volume": "372867.97981100",
+            "6. market cap (USD)": "372867.97981100"
+        },
+        "2021-08-08": {
+            "1a. open (CNY)": "282665.93516400",
+            "1b. open (USD)": "39850.27000000",
+            "2a. high (CNY)": "321392.89200000",
+            "2b. high (USD)": "45310.00000000",
+            "3a. low (CNY)": "264808.30764000",
+            "3b. low (USD)": "37332.70000000",
+            "4a. close (CNY)": "310642.22528400",
+            "4b. close (USD)": "43794.37000000",
+            "5. volume": "463107.67071100",
+            "6. market cap (USD)": "463107.67071100"
+        },
+        "2021-08-01": {
+            "1a. open (CNY)": "250964.65106400",
+            "1b. open (USD)": "35381.02000000",
+            "2a. high (CNY)": "302163.22680000",
+            "2b. high (USD)": "42599.00000000",
+            "3a. low (CNY)": "249721.63869600",
+            "3b. low (USD)": "35205.78000000",
+            "4a. close (CNY)": "282631.67500800",
+            "4b. close (USD)": "39845.44000000",
+            "5. volume": "568598.50960600",
+            "6. market cap (USD)": "568598.50960600"
+        },
+        "2021-07-25": {
+            "1a. open (CNY)": "225411.75272400",
+            "1b. open (USD)": "31778.57000000",
+            "2a. high (CNY)": "251085.09360000",
+            "2b. high (USD)": "35398.00000000",
+            "3a. low (CNY)": "207674.70960000",
+            "3b. low (USD)": "29278.00000000",
+            "4a. close (CNY)": "250964.65106400",
+            "4b. close (USD)": "35381.02000000",
+            "5. volume": "383262.21715400",
+            "6. market cap (USD)": "383262.21715400"
+        },
+        "2021-07-18": {
+            "1a. open (CNY)": "243005.93880000",
+            "1b. open (USD)": "34259.00000000",
+            "2a. high (CNY)": "245981.03967600",
+            "2b. high (USD)": "34678.43000000",
+            "3a. low (CNY)": "220031.06400000",
+            "3b. low (USD)": "31020.00000000",
+            "4a. close (CNY)": "225411.68179200",
+            "4b. close (USD)": "31778.56000000",
+            "5. volume": "306160.98707900",
+            "6. market cap (USD)": "306160.98707900"
+        },
+        "2021-07-11": {
+            "1a. open (CNY)": "250305.76371600",
+            "1b. open (USD)": "35288.13000000",
+            "2a. high (CNY)": "250345.84029600",
+            "2b. high (USD)": "35293.78000000",
+            "3a. low (CNY)": "227528.57640000",
+            "3b. low (USD)": "32077.00000000",
+            "4a. close (CNY)": "243005.86786800",
+            "4b. close (USD)": "34258.99000000",
+            "5. volume": "359766.23540400",
+            "6. market cap (USD)": "359766.23540400"
+        },
+        "2021-07-04": {
+            "1a. open (CNY)": "246151.70206800",
+            "1b. open (USD)": "34702.49000000",
+            "2a. high (CNY)": "259611.12000000",
+            "2b. high (USD)": "36600.00000000",
+            "3a. low (CNY)": "231940.54680000",
+            "3b. low (USD)": "32699.00000000",
+            "4a. close (CNY)": "250294.27273200",
+            "4b. close (USD)": "35286.51000000",
+            "5. volume": "464791.76359300",
+            "6. market cap (USD)": "464791.76359300"
+        },
+        "2021-06-27": {
+            "1a. open (CNY)": "252519.12584400",
+            "1b. open (USD)": "35600.17000000",
+            "2a. high (CNY)": "253581.90000000",
+            "2b. high (USD)": "35750.00000000",
+            "3a. low (CNY)": "204319.62600000",
+            "3b. low (USD)": "28805.00000000",
+            "4a. close (CNY)": "246136.45168800",
+            "4b. close (USD)": "34700.34000000",
+            "5. volume": "907073.70759800",
+            "6. market cap (USD)": "907073.70759800"
+        },
+        "2021-06-20": {
+            "1a. open (CNY)": "276780.63619200",
+            "1b. open (USD)": "39020.56000000",
+            "2a. high (CNY)": "293161.95600000",
+            "2b. high (USD)": "41330.00000000",
+            "3a. low (CNY)": "236458.91520000",
+            "3b. low (USD)": "33336.00000000",
+            "4a. close (CNY)": "252519.05491200",
+            "4b. close (USD)": "35600.16000000",
+            "5. volume": "610333.96208900",
+            "6. market cap (USD)": "610333.96208900"
+        },
+        "2021-06-13": {
+            "1a. open (CNY)": "253910.38609200",
+            "1b. open (USD)": "35796.31000000",
+            "2a. high (CNY)": "279330.21600000",
+            "2b. high (USD)": "39380.00000000",
+            "3a. low (CNY)": "219889.20000000",
+            "3b. low (USD)": "31000.00000000",
+            "4a. close (CNY)": "276780.70712400",
+            "4b. close (USD)": "39020.57000000",
+            "5. volume": "700065.60491500",
+            "6. market cap (USD)": "700065.60491500"
+        },
+        "2021-06-06": {
+            "1a. open (CNY)": "252810.58543200",
+            "1b. open (USD)": "35641.26000000",
+            "2a. high (CNY)": "280011.16320000",
+            "2b. high (USD)": "39476.00000000",
+            "3a. low (CNY)": "242260.01788800",
+            "3b. low (USD)": "34153.84000000",
+            "4a. close (CNY)": "253910.38609200",
+            "4b. close (USD)": "35796.31000000",
+            "5. volume": "528299.50493700",
+            "6. market cap (USD)": "528299.50493700"
+        },
+        "2021-05-30": {
+            "1a. open (CNY)": "246002.39020800",
+            "1b. open (USD)": "34681.44000000",
+            "2a. high (CNY)": "289693.38120000",
+            "2b. high (USD)": "40841.00000000",
+            "3a. low (CNY)": "236763.92280000",
+            "3b. low (USD)": "33379.00000000",
+            "4a. close (CNY)": "252810.65636400",
+            "4b. close (USD)": "35641.27000000",
+            "5. volume": "786531.16394100",
+            "6. market cap (USD)": "786531.16394100"
+        },
+        "2021-05-23": {
+            "1a. open (CNY)": "329314.79055600",
+            "1b. open (USD)": "46426.83000000",
+            "2a. high (CNY)": "331153.13520000",
+            "2b. high (USD)": "46686.00000000",
+            "3a. low (CNY)": "212796.00000000",
+            "3b. low (USD)": "30000.00000000",
+            "4a. close (CNY)": "245816.61930000",
+            "4b. close (USD)": "34655.25000000",
+            "5. volume": "1386781.05214400",
+            "6. market cap (USD)": "1386781.05214400"
+        },
+        "2021-05-16": {
+            "1a. open (CNY)": "413113.85535600",
+            "1b. open (USD)": "58240.83000000",
+            "2a. high (CNY)": "422045.40000000",
+            "2b. high (USD)": "59500.00000000",
+            "3a. low (CNY)": "310862.25634800",
+            "3b. low (USD)": "43825.39000000",
+            "4a. close (CNY)": "329347.91580000",
+            "4b. close (USD)": "46431.50000000",
+            "5. volume": "684880.14819700",
+            "6. market cap (USD)": "684880.14819700"
+        },
+        "2021-05-09": {
+            "1a. open (CNY)": "401320.55917200",
+            "1b. open (USD)": "56578.21000000",
+            "2a. high (CNY)": "422045.40000000",
+            "2b. high (USD)": "59500.00000000",
+            "3a. low (CNY)": "375230.28000000",
+            "3b. low (USD)": "52900.00000000",
+            "4a. close (CNY)": "413113.92628800",
+            "4b. close (USD)": "58240.84000000",
+            "5. volume": "504478.92630300",
+            "6. market cap (USD)": "504478.92630300"
+        },
+        "2021-05-02": {
+            "1a. open (CNY)": "348040.34203200",
+            "1b. open (USD)": "49066.76000000",
+            "2a. high (CNY)": "414654.78212400",
+            "2b. high (USD)": "58458.07000000",
+            "3a. low (CNY)": "345817.90060800",
+            "3b. low (USD)": "48753.44000000",
+            "4a. close (CNY)": "401320.55917200",
+            "4b. close (USD)": "56578.21000000",
+            "5. volume": "395983.45601300",
+            "6. market cap (USD)": "395983.45601300"
+        },
+        "2021-04-25": {
+            "1a. open (CNY)": "398283.25093200",
+            "1b. open (USD)": "56150.01000000",
+            "2a. high (CNY)": "408049.16869200",
+            "2b. high (USD)": "57526.81000000",
+            "3a. low (CNY)": "332883.87600000",
+            "3b. low (USD)": "46930.00000000",
+            "4a. close (CNY)": "348040.41296400",
+            "4b. close (USD)": "49066.77000000",
+            "5. volume": "568462.85096000",
+            "6. market cap (USD)": "568462.85096000"
+        },
+        "2021-04-18": {
+            "1a. open (CNY)": "425583.48816000",
+            "1b. open (USD)": "59998.80000000",
+            "2a. high (CNY)": "460022.39280000",
+            "2b. high (USD)": "64854.00000000",
+            "3a. low (CNY)": "361265.89716000",
+            "3b. low (USD)": "50931.30000000",
+            "4a. close (CNY)": "398283.25093200",
+            "4b. close (USD)": "56150.01000000",
+            "5. volume": "549048.29803200",
+            "6. market cap (USD)": "549048.29803200"
+        },
+        "2021-04-11": {
+            "1a. open (CNY)": "412838.49733200",
+            "1b. open (USD)": "58202.01000000",
+            "2a. high (CNY)": "436231.80000000",
+            "2b. high (USD)": "61500.00000000",
+            "3a. low (CNY)": "393481.08360000",
+            "3b. low (USD)": "55473.00000000",
+            "4a. close (CNY)": "425609.23647600",
+            "4b. close (USD)": "60002.43000000",
+            "5. volume": "375865.59361400",
+            "6. market cap (USD)": "375865.59361400"
+        },
+        "2021-04-04": {
+            "1a. open (CNY)": "395642.02698000",
+            "1b. open (USD)": "55777.65000000",
+            "2a. high (CNY)": "427010.64000000",
+            "2b. high (USD)": "60200.00000000",
+            "3a. low (CNY)": "388707.43093200",
+            "3b. low (USD)": "54800.01000000",
+            "4a. close (CNY)": "412838.49733200",
+            "4b. close (USD)": "58202.01000000",
+            "5. volume": "367477.89327300",
+            "6. market cap (USD)": "367477.89327300"
+        },
+        "2021-03-28": {
+            "1a. open (CNY)": "406806.08539200",
+            "1b. open (USD)": "57351.56000000",
+            "2a. high (CNY)": "414460.85403600",
+            "2b. high (USD)": "58430.73000000",
+            "3a. low (CNY)": "357692.76859200",
+            "3b. low (USD)": "50427.56000000",
+            "4a. close (CNY)": "395641.88511600",
+            "4b. close (USD)": "55777.63000000",
+            "5. volume": "446278.62841300",
+            "6. market cap (USD)": "446278.62841300"
+        },
+        "2021-03-21": {
+            "1a. open (CNY)": "418329.13065600",
+            "1b. open (USD)": "58976.08000000",
+            "2a. high (CNY)": "430085.04567600",
+            "2b. high (USD)": "60633.43000000",
+            "3a. low (CNY)": "377864.26888800",
+            "3b. low (USD)": "53271.34000000",
+            "4a. close (CNY)": "406806.08539200",
+            "4b. close (USD)": "57351.56000000",
+            "5. volume": "463194.21418000",
+            "6. market cap (USD)": "463194.21418000"
+        },
+        "2021-03-14": {
+            "1a. open (CNY)": "361463.15905200",
+            "1b. open (USD)": "50959.11000000",
+            "2a. high (CNY)": "438671.86080000",
+            "2b. high (USD)": "61844.00000000",
+            "3a. low (CNY)": "349515.08924400",
+            "3b. low (USD)": "49274.67000000",
+            "4a. close (CNY)": "418274.01649200",
+            "4b. close (USD)": "58968.31000000",
+            "5. volume": "514559.69868500",
+            "6. market cap (USD)": "514559.69868500"
+        },
+        "2021-03-07": {
+            "1a. open (CNY)": "320145.26905200",
+            "1b. open (USD)": "45134.11000000",
+            "2a. high (CNY)": "373386.04800000",
+            "2b. high (USD)": "52640.00000000",
+            "3a. low (CNY)": "318843.09939600",
+            "3b. low (USD)": "44950.53000000",
+            "4a. close (CNY)": "361552.81710000",
+            "4b. close (USD)": "50971.75000000",
+            "5. volume": "490819.56296800",
+            "6. market cap (USD)": "490819.56296800"
+        },
+        "2021-02-28": {
+            "1a. open (CNY)": "407237.28102000",
+            "1b. open (USD)": "57412.35000000",
+            "2a. high (CNY)": "407919.07940400",
+            "2b. high (USD)": "57508.47000000",
+            "3a. low (CNY)": "305007.60000000",
+            "3b. low (USD)": "43000.00000000",
+            "4a. close (CNY)": "320156.26351200",
+            "4b. close (USD)": "45135.66000000",
+            "5. volume": "737125.74636500",
+            "6. market cap (USD)": "737125.74636500"
+        },
+        "2021-02-21": {
+            "1a. open (CNY)": "344590.98980400",
+            "1b. open (USD)": "48580.47000000",
+            "2a. high (CNY)": "413908.08096000",
+            "2b. high (USD)": "58352.80000000",
+            "3a. low (CNY)": "323242.72762800",
+            "3b. low (USD)": "45570.79000000",
+            "4a. close (CNY)": "407210.46872400",
+            "4b. close (USD)": "57408.57000000",
+            "5. volume": "533487.79969900",
+            "6. market cap (USD)": "533487.79969900"
+        },
+        "2021-02-14": {
+            "1a. open (CNY)": "275185.58830800",
+            "1b. open (USD)": "38795.69000000",
+            "2a. high (CNY)": "352584.74247600",
+            "2b. high (USD)": "49707.43000000",
+            "3a. low (CNY)": "269462.79454800",
+            "3b. low (USD)": "37988.89000000",
+            "4a. close (CNY)": "344571.98002800",
+            "4b. close (USD)": "48577.79000000",
+            "5. volume": "664186.27090900",
+            "6. market cap (USD)": "664186.27090900"
+        },
+        "2021-02-07": {
+            "1a. open (CNY)": "234735.05480400",
+            "1b. open (USD)": "33092.97000000",
+            "2a. high (CNY)": "290505.62353200",
+            "2b. high (USD)": "40955.51000000",
+            "3a. low (CNY)": "229083.12211200",
+            "3b. low (USD)": "32296.16000000",
+            "4a. close (CNY)": "275185.58830800",
+            "4b. close (USD)": "38795.69000000",
+            "5. volume": "583442.33154400",
+            "6. market cap (USD)": "583442.33154400"
+        },
+        "2021-01-31": {
+            "1a. open (CNY)": "228822.73074000",
+            "1b. open (USD)": "32259.45000000",
+            "2a. high (CNY)": "273314.47308000",
+            "2b. high (USD)": "38531.90000000",
+            "3a. low (CNY)": "207417.36830400",
+            "3b. low (USD)": "29241.72000000",
+            "4a. close (CNY)": "234735.12573600",
+            "4b. close (USD)": "33092.98000000",
+            "5. volume": "747463.50850900",
+            "6. market cap (USD)": "747463.50850900"
+        },
+        "2021-01-24": {
+            "1a. open (CNY)": "254113.81906800",
+            "1b. open (USD)": "35824.99000000",
+            "2a. high (CNY)": "268477.62000000",
+            "2b. high (USD)": "37850.00000000",
+            "3a. low (CNY)": "204638.82000000",
+            "3b. low (USD)": "28850.00000000",
+            "4a. close (CNY)": "228825.92268000",
+            "4b. close (USD)": "32259.90000000",
+            "5. volume": "640226.93578500",
+            "6. market cap (USD)": "640226.93578500"
+        },
+        "2021-01-17": {
+            "1a. open (CNY)": "270605.72186400",
+            "1b. open (USD)": "38150.02000000",
+            "2a. high (CNY)": "284437.32000000",
+            "2b. high (USD)": "40100.00000000",
+            "3a. low (CNY)": "215775.14400000",
+            "3b. low (USD)": "30420.00000000",
+            "4a. close (CNY)": "254139.49645200",
+            "4b. close (USD)": "35828.61000000",
+            "5. volume": "897339.67445000",
+            "6. market cap (USD)": "897339.67445000"
+        },
+        "2021-01-10": {
+            "1a. open (CNY)": "234075.95466000",
+            "1b. open (USD)": "33000.05000000",
+            "2a. high (CNY)": "297559.74000000",
+            "2b. high (USD)": "41950.00000000",
+            "3a. low (CNY)": "199531.71600000",
+            "3b. low (USD)": "28130.00000000",
+            "4a. close (CNY)": "270605.72186400",
+            "4b. close (USD)": "38150.02000000",
+            "5. volume": "850700.26615200",
+            "6. market cap (USD)": "850700.26615200"
+        },
+        "2021-01-03": {
+            "1a. open (CNY)": "186420.21952800",
+            "1b. open (USD)": "26281.54000000",
+            "2a. high (CNY)": "246688.08985200",
+            "2b. high (USD)": "34778.11000000",
+            "3a. low (CNY)": "183572.01600000",
+            "3b. low (USD)": "25880.00000000",
+            "4a. close (CNY)": "234075.95466000",
+            "4b. close (USD)": "33000.05000000",
+            "5. volume": "625132.26320300",
+            "6. market cap (USD)": "625132.26320300"
+        },
+        "2020-12-27": {
+            "1a. open (CNY)": "166374.83632800",
+            "1b. open (USD)": "23455.54000000",
+            "2a. high (CNY)": "201602.93040000",
+            "2b. high (USD)": "28422.00000000",
+            "3a. low (CNY)": "154738.15800000",
+            "3b. low (USD)": "21815.00000000",
+            "4a. close (CNY)": "186421.07071200",
+            "4b. close (USD)": "26281.66000000",
+            "5. volume": "688906.56055700",
+            "6. market cap (USD)": "688906.56055700"
+        },
+        "2020-12-20": {
+            "1a. open (CNY)": "136012.03906800",
+            "1b. open (USD)": "19174.99000000",
+            "2a. high (CNY)": "172329.29400000",
+            "2b. high (USD)": "24295.00000000",
+            "3a. low (CNY)": "134770.80000000",
+            "3b. low (USD)": "19000.00000000",
+            "4a. close (CNY)": "166374.69446400",
+            "4b. close (USD)": "23455.52000000",
+            "5. volume": "650661.72430000",
+            "6. market cap (USD)": "650661.72430000"
+        },
+        "2020-12-13": {
+            "1a. open (CNY)": "137314.91804400",
+            "1b. open (USD)": "19358.67000000",
+            "2a. high (CNY)": "137756.39881200",
+            "2b. high (USD)": "19420.91000000",
+            "3a. low (CNY)": "124644.05115600",
+            "3b. low (USD)": "17572.33000000",
+            "4a. close (CNY)": "136012.03906800",
+            "4b. close (USD)": "19174.99000000",
+            "5. volume": "414166.99723700",
+            "6. market cap (USD)": "414166.99723700"
+        },
+        "2020-12-06": {
+            "1a. open (CNY)": "128989.84200000",
+            "1b. open (USD)": "18185.00000000",
+            "2a. high (CNY)": "141069.56160000",
+            "2b. high (USD)": "19888.00000000",
+            "3a. low (CNY)": "127685.54438400",
+            "3b. low (USD)": "18001.12000000",
+            "4a. close (CNY)": "137320.09608000",
+            "4b. close (USD)": "19359.40000000",
+            "5. volume": "537012.14293100",
+            "6. market cap (USD)": "537012.14293100"
+        },
+        "2020-11-29": {
+            "1a. open (CNY)": "130613.33361600",
+            "1b. open (USD)": "18413.88000000",
+            "2a. high (CNY)": "138205.39837200",
+            "2b. high (USD)": "19484.21000000",
+            "3a. low (CNY)": "114824.72160000",
+            "3b. low (USD)": "16188.00000000",
+            "4a. close (CNY)": "128989.77106800",
+            "4b. close (USD)": "18184.99000000",
+            "5. volume": "676351.57997400",
+            "6. market cap (USD)": "676351.57997400"
+        },
+        "2020-11-22": {
+            "1a. open (CNY)": "113186.19240000",
+            "1b. open (USD)": "15957.00000000",
+            "2a. high (CNY)": "134528.92188000",
+            "2b. high (USD)": "18965.90000000",
+            "3a. low (CNY)": "112526.52480000",
+            "3b. low (USD)": "15864.00000000",
+            "4a. close (CNY)": "130617.23487600",
+            "4b. close (USD)": "18414.43000000",
+            "5. volume": "684197.64282900",
+            "6. market cap (USD)": "684197.64282900"
+        },
+        "2020-11-15": {
+            "1a. open (CNY)": "109767.97932000",
+            "1b. open (USD)": "15475.10000000",
+            "2a. high (CNY)": "116895.93600000",
+            "2b. high (USD)": "16480.00000000",
+            "3a. low (CNY)": "105018.65632800",
+            "3b. low (USD)": "14805.54000000",
+            "4a. close (CNY)": "113186.19240000",
+            "4b. close (USD)": "15957.00000000",
+            "5. volume": "529729.42649600",
+            "6. market cap (USD)": "529729.42649600"
+        },
+        "2020-11-08": {
+            "1a. open (CNY)": "97613.00086800",
+            "1b. open (USD)": "13761.49000000",
+            "2a. high (CNY)": "113207.47200000",
+            "2b. high (USD)": "15960.00000000",
+            "3a. low (CNY)": "93595.12866000",
+            "3b. low (USD)": "13195.05000000",
+            "4a. close (CNY)": "109767.97932000",
+            "4b. close (USD)": "15475.10000000",
+            "5. volume": "665037.14645200",
+            "6. market cap (USD)": "665037.14645200"
+        },
+        "2020-11-01": {
+            "1a. open (CNY)": "92421.84244800",
+            "1b. open (USD)": "13029.64000000",
+            "2a. high (CNY)": "100014.12000000",
+            "2b. high (USD)": "14100.00000000",
+            "3a. low (CNY)": "90544.69800000",
+            "3b. low (USD)": "12765.00000000",
+            "4a. close (CNY)": "97613.07180000",
+            "4b. close (USD)": "13761.50000000",
+            "5. volume": "485358.52171600",
+            "6. market cap (USD)": "485358.52171600"
+        },
+        "2020-10-25": {
+            "1a. open (CNY)": "81594.07264800",
+            "1b. open (USD)": "11503.14000000",
+            "2a. high (CNY)": "94694.22000000",
+            "2b. high (USD)": "13350.00000000",
+            "3a. low (CNY)": "80918.94187200",
+            "3b. low (USD)": "11407.96000000",
+            "4a. close (CNY)": "92416.09695600",
+            "4b. close (USD)": "13028.83000000",
+            "5. volume": "418993.35468100",
+            "6. market cap (USD)": "418993.35468100"
+        },
+        "2020-10-18": {
+            "1a. open (CNY)": "80642.73266400",
+            "1b. open (USD)": "11369.02000000",
+            "2a. high (CNY)": "83132.37493200",
+            "2b. high (USD)": "11720.01000000",
+            "3a. low (CNY)": "79245.23040000",
+            "3b. low (USD)": "11172.00000000",
+            "4a. close (CNY)": "81594.07264800",
+            "4b. close (USD)": "11503.14000000",
+            "5. volume": "279657.09704700",
+            "6. market cap (USD)": "279657.09704700"
+        },
+        "2020-10-11": {
+            "1a. open (CNY)": "75660.46898400",
+            "1b. open (USD)": "10666.62000000",
+            "2a. high (CNY)": "81507.96120000",
+            "2b. high (USD)": "11491.00000000",
+            "3a. low (CNY)": "74655.93000000",
+            "3b. low (USD)": "10525.00000000",
+            "4a. close (CNY)": "80642.73266400",
+            "4b. close (USD)": "11369.02000000",
+            "5. volume": "288404.14549400",
+            "6. market cap (USD)": "288404.14549400"
+        },
+        "2020-10-04": {
+            "1a. open (CNY)": "76423.98103200",
+            "1b. open (USD)": "10774.26000000",
+            "2a. high (CNY)": "77670.54000000",
+            "2b. high (USD)": "10950.00000000",
+            "3a. low (CNY)": "73584.85680000",
+            "3b. low (USD)": "10374.00000000",
+            "4a. close (CNY)": "75660.53991600",
+            "4b. close (USD)": "10666.63000000",
+            "5. volume": "288073.12698900",
+            "6. market cap (USD)": "288073.12698900"
+        },
+        "2020-09-27": {
+            "1a. open (CNY)": "77459.73009600",
+            "1b. open (USD)": "10920.28000000",
+            "2a. high (CNY)": "77946.18175200",
+            "2b. high (USD)": "10988.86000000",
+            "3a. low (CNY)": "71902.49162400",
+            "3b. low (USD)": "10136.82000000",
+            "4a. close (CNY)": "76423.91010000",
+            "4b. close (USD)": "10774.25000000",
+            "5. volume": "331299.29108100",
+            "6. market cap (USD)": "331299.29108100"
+        },
+        "2020-09-20": {
+            "1a. open (CNY)": "73292.90068800",
+            "1b. open (USD)": "10332.84000000",
+            "2a. high (CNY)": "79300.48642800",
+            "2b. high (USD)": "11179.79000000",
+            "3a. low (CNY)": "72438.17008800",
+            "3b. low (USD)": "10212.34000000",
+            "4a. close (CNY)": "77459.73009600",
+            "4b. close (USD)": "10920.28000000",
+            "5. volume": "374339.55881400",
+            "6. market cap (USD)": "374339.55881400"
+        },
+        "2020-09-13": {
+            "1a. open (CNY)": "72747.07894800",
+            "1b. open (USD)": "10255.89000000",
+            "2a. high (CNY)": "75046.83625200",
+            "2b. high (USD)": "10580.11000000",
+            "3a. low (CNY)": "69868.02000000",
+            "3b. low (USD)": "9850.00000000",
+            "4a. close (CNY)": "73292.82975600",
+            "4b. close (USD)": "10332.83000000",
+            "5. volume": "366759.99404800",
+            "6. market cap (USD)": "366759.99404800"
+        }
+    }
+}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>bitCoin_ExchgRate</span>
+						<span class='test-time'>Jun 1, 2023 06:30:20 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jun 1, 2023 06:30:20 PM</span>
+	<span class='label end-time'>Jun 1, 2023 06:30:20 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+246ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:30:20 PM</td>
+					<td class='step-details'>Failed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>forex_Daily</span>
+						<span class='test-time'>Jun 1, 2023 06:30:20 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jun 1, 2023 06:30:20 PM</span>
+	<span class='label end-time'>Jun 1, 2023 06:30:21 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+274ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:30:21 PM</td>
+					<td class='step-details'>Failed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>stockTime_InterDay</span>
+						<span class='test-time'>Jun 1, 2023 06:30:21 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jun 1, 2023 06:30:21 PM</span>
+	<span class='label end-time'>Jun 1, 2023 06:30:21 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+254ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:30:21 PM</td>
+					<td class='step-details'>Failed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>5</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>5</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jun 1, 2023 06:30:18 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jun 1, 2023 06:30:21 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 0m 3s+71ms</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 2,
+				failParent: 3,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 3,
+				
+				passChild: 2,
+				failChild: 3,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 3,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

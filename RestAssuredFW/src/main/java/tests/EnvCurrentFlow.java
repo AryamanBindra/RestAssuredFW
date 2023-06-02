@@ -24,8 +24,6 @@ public class EnvCurrentFlow extends BaseTest {
 
 		data = response.asString();
 
-		String code = response.asPrettyString();
-		System.out.println(code);
 		Assert.assertEquals(response.getStatusCode(), 200);
 		
 		test.log(Status.DEBUG, "success");

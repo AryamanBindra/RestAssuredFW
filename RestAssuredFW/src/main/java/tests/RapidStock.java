@@ -29,9 +29,8 @@ public class RapidStock extends BaseTest{
 		headers.put("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com");
 		
 		Response res = lu.taGet("/query", headers, query);
-		
 		System.out.println(res.getStatusCode());
-		
+				
 		if(res.getStatusCode() == 200) {
 			System.out.println("Inter Day Stock data recieved");
 			test.log(Status.PASS, "Inter Day Stock data recieved");
@@ -58,7 +57,6 @@ public class RapidStock extends BaseTest{
 		headers.put("X-RapidAPI-Key", "52942249cemshc46118935f70976p1c3ccbjsnf9085d0eab24");
 		headers.put("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com");
 		
-//		Response res = RestAssured.given().queryParams(map).headers(headers).get("/query").andReturn();
 		Response res = lu.taGet("/query", headers, query);
 		System.out.println(res.getStatusCode());
 		
@@ -85,9 +83,8 @@ public class RapidStock extends BaseTest{
 		headers.put("X-RapidAPI-Key", "52942249cemshc46118935f70976p1c3ccbjsnf9085d0eab24");
 		headers.put("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com");
 		
-//		Response res = RestAssured.given().queryParams(map).headers(headers).get("/query").andReturn();
 		Response res = lu.taGet("/query", headers, query);
-		System.out.println(res.asPrettyString());
+		System.out.println(res.getStatusCode());
 		
 		if(res.getStatusCode() == 200) {
 			System.out.println("Bitcoin to USD Stock Exchange rate recieved");
@@ -112,9 +109,8 @@ public class RapidStock extends BaseTest{
 		headers.put("X-RapidAPI-Key", "52942249cemshc46118935f70976p1c3ccbjsnf9085d0eab24");
 		headers.put("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com");
 		
-//		Response res = RestAssured.given().queryParams(map).headers(headers).get("/query").andReturn();
 		Response res = lu.taGet("/query", headers, query);
-		System.out.println(res.asPrettyString());
+		System.out.println(res.getStatusCode());
 		
 		if(res.getStatusCode() == 200) {
 			System.out.println("Digital Weekly Exchange rate recieved");
@@ -139,9 +135,8 @@ public class RapidStock extends BaseTest{
 		headers.put("X-RapidAPI-Key", "52942249cemshc46118935f70976p1c3ccbjsnf9085d0eab24");
 		headers.put("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com");
 		
-//		Response res = RestAssured.given().queryParams(query).headers(headers).get("/query").andReturn();
 		Response res = lu.taGet("/query", headers, query);
-		System.out.println(res.asPrettyString());
+		System.out.println(res.getStatusCode());
 		
 		if(res.getStatusCode() == 200) {
 			System.out.println("Digital monthly Exchange rate recieved");
